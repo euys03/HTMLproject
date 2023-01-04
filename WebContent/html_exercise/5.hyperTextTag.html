@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>하이퍼링크 관련 태그</title>
+    <!-- a태그와 href 태그와 항상 같이 쓰인다 -->
+</head>
+<body>
+    <h1>하이퍼링크 관련 태그</h1>
+    <!-- 
+        기본값 : 현재 창에 열리게 되어 있음
+        target="_self" : (기본값)현재 창에서 열리게 되어있음(생략가능)
+        target="_blank" : 현재 창에서 열리지 않게 하기
+     -->
+    <a href="http://www.iei.or.kr" target="_self">KH정보교육원</a><br>
+    <a href="http://gdu.co.kr/" target="_blank">구디아카데미</a><br>
+    <!-- html파일도 실행가능 -->
+    <a href="./4.multimediaTag.html">멀티미디어 관련 태그</a><br>
+    <a href="../images/mic.jpg">마이크</a><br>
+    <!-- 파일 다운도 가능 / (상대경로로 파일 찾아가기) -->
+    <a href="../images/top.jpg" download>탑(다운)</a>
+
+    <h1>[연습문제1] 수습 국원 모집</h1>
+    <h2><b>방송에 관심있는 새내기 여러분 환영합니다</b></h2>
+    <h3>
+        교내 방송국에서 신입생을 대상으로 수습 국원을 모집합니다. 학부나 전송에 상관없습니다.<br>
+        평소 방송에 관심있었던 여러 학우들의 지원바랍니다.
+    </h3>
+
+    <ul>
+        <li><b>모집 기간 :</b> 3월 2일 ~ 3월 11일</li>
+        <li><b>모집 분야 :</b> 아나운서, PD, 엔지니어</li>
+        <li><b>지원 방법 :</b>양식 작성 후 이메일 접수</li>
+        <em>지원서 양식은 교내 방송국 홈페이지 공지 게시판에 있습니다.</em>
+    </ul>
+    <h3><b>혜택</b></h3>
+    <ol type="a">
+        <li>수습기자 활동 중 소정의 활동비 지급</li>
+        <li>정기자로 진급하면 장학금 지급</li>
+    </ol>
+    <img src="../images/mic.jpg" alt="마이크사진">
+
+    <h1>[연습문제2] 수습 국원 지원 양식</h1>
+    <!-- <th>태그를 사용하면 글꼴 굵게와 가운데 정렬을 동시에 할 수 있다. -->
+    <table border="1">
+        <tr>
+            <th rowspan="3" width="130" height="160">개인정보</th>
+            <th width="120">이름</th>
+            <td width="250">1-3</td>
+        </tr>
+        <tr>
+            <!-- <td>2-1</td> -->
+            <th>학과/학번</th>
+            <td>2-3</td>
+        </tr>
+        <tr>
+            <!-- <td>3-1</td> -->
+            <th>연락처</th>
+            <td>3-3</td>
+        </tr>
+        <tr>
+            <th>지원분야</th>
+            <td colspan="2" width="200" height="50">4-2</td>
+            <!-- <td>4-3</td> -->
+        </tr>
+    </table>
+</body>
+</html>
