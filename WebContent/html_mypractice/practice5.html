@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>연습문제5</title>
+</head>
+<body>
+    <form action="">
+        <fieldset>
+            <legend>상품 선택</legend>
+            <p>주문할 상품을 선택해주세요.</p>
+            <ul>
+                <li>
+                    <input type="checkbox" name="" id="">선물용 3kg
+                    <!-- 개수제한 max, min 사용 -->
+                    <input type="number" min="0" max="5">개 <small>(최대 5개)</small>
+                </li>
+                <li>
+                    <input type="checkbox" name="" id="">선물용 5kg
+                    <!-- 개수제한 max, min 사용 -->
+                    <input type="number" min="0" max="3">개 <small>(최대 3개)</small>
+                </li>
+                <li>
+                    <input type="checkbox" name="" id="">가정용 3kg
+                    <!-- 개수제한 max, min 사용 -->
+                    <input type="number" min="0" max="5">개 <small>(최대 3개)</small>
+                </li>
+                <li>
+                    <input type="checkbox" name="" id="">가정용 5kg
+                    <!-- 개수제한 max, min 사용 -->
+                    <input type="number" min="0" max="3">개 <small>(최대 3개)</small>
+                </li>
+            </ul>
+            <!-- 라디오버튼 : 여러 개의 라디오버튼 중 '하나만'선택하기 위해 name을 적어줘야한다.-->
+            <p>포장 선택</p>
+            <ul>
+                <li><input type="radio" name="wrapping">선물 포장</li>
+                <li><input type="radio" name="wrapping">선물 포장 안 함</li>
+            </ul>
+        </fieldset>
+        <fieldset>
+            <legend>배송 정보</legend>
+            <ul>
+                <!--<required>태그 : 아무 값도 입력하지 않고 전송하려는 것을 막는 태그(null 여부)-->
+                <li>
+                    이름
+                    <input type="text" required>
+                </li>
+                <li>
+                    배송주소
+                    <input type="text" required>
+                </li>
+                <li>
+                    이메일
+                    <input type="email">
+                </li>
+                <!--<placeholder>태그 : 입력칸 내에 가이드 메시지 출력가능-->
+                <li>
+                    연락처
+                    <input type="tel" placeholder="하이픈 빼고 입력해주세요(01012345678)">
+                </li>
+                <li>
+                    배송 지정
+                    <input type="date"> (주문일로부터 최소 3일 이후)
+                </li>
+                <li>
+                    메모
+                    <!-- <textarea>태그 : 장문 작성 가능 (cols:가로, rows:세로)-->
+                    <textarea cols="40" rows="4"></textarea>
+                </li>
+            </ul>
+        </fieldset>
+        <div>
+            <input type="submit" value="주문하기">
+            <input type="reset" value="취소하기">
+        </div>
+    </form>
+
+</body>
+</html>

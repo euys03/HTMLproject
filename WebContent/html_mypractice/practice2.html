@@ -5,15 +5,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>연습문제2</title>
+    <style>
+        /* CSS 사용하여 테이블의 속성 변경하기 */
+        h1 { color : rebeccapurple; background-color: yellow;}
+        table { border : 1px solid #ccc; }
+        td { border : 1px solid #ccc; }
+        th { border : 1px solid #ccc; }
+        /* CSS에서 너비 조정하기 */
+        td { padding : 10px 20px; }
+        th { padding : 10px 20px; }
+        /* last-child : 하나의 <tr>태그(행) 안에 있는 마지막 <td>태그(열)들만 선택하여 적용하는 것 */
+        td:last-child {
+            width: 200px;
+        }
+    </style>
 </head>
 <body>
     <h1>수습 국원 지원 양식</h1>
     <!-- <th>태그를 사용하면 글꼴 굵게와 가운데 정렬을 동시에 할 수 있다. -->
     <table border="1">
         <tr>
-            <th rowspan="3" width="130" height="160">개인정보</th>
-            <th width="120">이름</th>
-            <td width="250">1-3</td>
+            <th rowspan="3">개인정보</th>
+            <th>이름</th>
+            <td>1-3</td>
         </tr>
         <tr>
             <!-- <td>2-1</td> -->
@@ -27,10 +41,8 @@
         </tr>
         <tr>
             <th>지원분야</th>
-            <td colspan="2" width="200" height="50">4-2</td>
+            <td colspan="2">4-2</td>
             <!-- <td>4-3</td> -->
         </tr>
 </body>
 </html>
-
-<!-- => CSS를 사용하여 색채있게 사용가능 -->

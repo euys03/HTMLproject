@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>연습문제3</title>
+    <style>
+        table, th, td {
+            /* 채색 */
+            border : 1px solid #ccc;
+            /* 두 줄 인 걸 지워주는 것. */
+            border-collapse: collapse;
+        }
+        /* padding사용하여 텍스트를 가운데로 배치 */
+        th, td {padding: 10px 20px;}
+    </style>
+</head>
+<body>
+    <img src="../images/tangerines.jpg" alt="레드향">
+    <h1>레드향</h1>
+    <p>껍질에 붉은 빛이 돌아 <b>레드향</b>이라 불린다.</p>
+    <p>
+        레드향은 한라봉과 귤을 교배한 것으로
+        일반 귤보다 2~3배 크고, 과육이 붉고 통통하다.
+    </p>
+    <p>
+        비타민 C와 비타민 P가 풍부해<br>
+        <strong>혈액순환, 감기예방</strong> 등에 좋은 것으로 알려져 있다.
+    </p>
+    <hr>
+    <h2>레드향 샐러드 레시피</h2>
+    <p><strong>재료 : </strong>레드향 1개, 아보카도 1개, 토마토 1개, 샐러드 채소 30g</p>
+    <p><strong>드레싱 : </strong>올리브유 1큰술, 레몬즙 2큰술, 꿀 1큰술, 소금 약간</p>
+    <ol>
+        <li>샐러드 채소를 씻고 물기를 제거한 후 준비합니다.</li>
+        <li>레드향과 아보카도, 토미토를 먹기 좋은 크기로 썰어둡니다.</li>
+        <li>드레싱 재료를 믹서에 갈아줍니다.</li>
+        <li>볼에 샐러드 채소와 썰어 둔 레드향, 아보카도, 토마토를 넣고 드레싱을 뿌리면 끝!</li>
+    </ol>
+    <img src="../images/salad.jpg" alt="샐러드" width="320px">
+    <hr>
+    <h2>상품구성</h2>
+
+    <!-- <table>의 구분 : <thead>, <tbody>, <tfoot> -> 검색엔진에서의 구분으로 사용된다 -->
+    <!-- <colgroup>태그 : 각 컬럼(용량,중량,갯수,가격)에 대해 각각의 스타일을 변경할 수 있다. -->
+    <table>
+        <!-- <caption>태그 :  테이블의 제목을 작성-->
+        <caption>선물용과 가정용 상품 구성</caption>
+        <colgroup>
+            <col style="background-color: #eee;">   <!--용량 컬럼-->
+            <col>                                      <!--중량 컬럼-->
+            <col style="width: 150;">                  <!--갯수 컬럼-->
+            <col style="width: 150;">                  <!--가격 컬럼-->
+        </colgroup>
+        <!-- 1. <thead>태그  -->
+        <thead>
+            <tr>
+                <th>용도</th>
+                <th>중량</th>
+                <th>갯수</th>
+                <th>가격</th>
+            </tr>
+        </thead>
+        <!-- 2. <tbody>태그 -->
+        <tbody>
+            <tr>
+                <td rowspan="2">선물용</td>
+                <td>3kg</td>
+                <td>11~16과</td>
+                <td>35,000원</td>
+            </tr>
+            <tr>
+                <!-- <td>선물용</td> -->
+                <td>5kg</td>
+                <td>18~26과</td>
+                <td>52,000원</td>
+            </tr>
+            <tr>
+                <td rowspan="2">가정용</td>
+                <td>3kg</td>
+                <td>11~16과</td>
+                <td>30,000원</td>
+            </tr>
+            <tr>
+                <!-- <td>가정용</td> -->
+                <td>5kg</td>
+                <td>18~26과</td>
+                <td>47,000원</td>
+            </tr>
+        </tbody>
+        <!-- 3. <tfoot>태그 -->
+        <tfoot>
+
+        </tfoot>
+    </table>
+    <br><br><br><br>
+</body>
+</html>

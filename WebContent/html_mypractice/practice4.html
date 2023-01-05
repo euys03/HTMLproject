@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>연습문제4</title>
+</head>
+<body>
+    <h1>레드향 주문하기</h1>
+    <form action="">
+        <!-- <fieldset>태그 : 폼의 테두리 생성 -->
+        <!-- <legend>태그 : 폼의 설명 작성 -->
+        <fieldset>
+            <legend>배송 정보</legend>
+            <ul>
+                <li>이름</li> 
+                <!--<required>태그 : 아무 값도 입력하지 않고 전송하려는 것을 막는 태그(null 여부)-->
+                    <input type="text" required>
+                <li>배송주소</li>
+                    <input type="text" required>
+                <li>이메일</li>
+                    <input type="email">
+                <li>연락처</li> 
+                <!--<placeholder>태그 : 입력칸 내에 가이드 메시지 출력가능-->
+                    <input type="tel" placeholder="하이픈 빼고 입력해주세요(01012345678)">
+                <li>배송 지정</li>
+                    <input type="date"> (주문일로부터 최소 3일 이후)
+            </ul>
+        </fieldset>
+        <div>
+            <input type="submit" value="주문하기">
+            <input type="reset" value="취소하기">
+        </div>
+    </form>
+</body>
+</html>
