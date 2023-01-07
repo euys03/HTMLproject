@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>테두리 관련 스타일</title>
+    <style>
+        /* div 태그 : 값을 입력해주지 않으면 웹 브라우저에서 확인할 수 없다(위로 밀려있는 상태)
+            - <div>태그를 보이게 하기 위해 <style>조정 */
+        div {
+            width: 50px;
+            height: 50px;
+            border-width: 3px;
+        }
+        .border-test1 {
+            border-style: none;
+        }
+        .border-test2 {
+            border-style: hidden;   /*선 투명*/
+            box-shadow: 5px 5px 3px 2px gray;
+        }
+        .border-test3 {
+            border-style: dotted;   /*점선*/
+        }
+        .border-test4 {
+            border-style: dashed;   /*짧게 끊긴 선*/
+        }
+        .border-test5 {
+            border-style: double;   /*이중선*/
+        }
+        .border-test6 {
+            border-style: groove;   /*투명*/
+            border-top-left-radius: 20px;    /*모서리가 둥근 사각형*/
+            /*radius : left/top/bottom/right*/
+        }
+        .border-test7 {
+            border-style: inset;    /*안쪽으로 들어간 사각형*/
+            border-bottom-right-radius: 50px;
+        }
+        .border-test8 {
+            border-style: outset;   /*바깥쪽으로 나온 사각형*/
+            border-top-left-radius: 50px;
+            border-bottom-right-radius: 50px;
+        }
+        .border-test9 {
+            border-style: ridge;    /*액자형*/
+            box-shadow: 5px 5px 3px 2px gray;   /*그림자 추가*/
+        }
+        .border-test10 {
+            border-style: solid;    /*진한 테두리*/
+            box-shadow: 5px 5px 3px 2px gray;   /*그림자 추가*/
+        }
+
+
+        /* 연습문제 */
+        table {
+            width: 500px;
+            height: 500px;
+            --border: 5px solid black;  /*테두리만 검정*/
+        }
+        th, td {
+            border : 5px dashed black;  /*테이블 내에 색상을 적용*/
+        }
+        #top-left {
+            border-color : blue;
+            border-top-left-radius: 50px;
+            border-top-style: solid;
+            border-left-style: solid;
+        }
+        #top-right {
+            border-color: green;
+            border-top-right-radius: 50px;
+            border-top-style: solid;
+            border-right-style: solid;
+        }
+        #bottom-left {
+            border-color: gold;
+            border-bottom-left-radius: 50px;
+            border-left-style: solid;
+            border-bottom-style: solid;
+        }
+        #bottom-right {
+            border-color: red;
+            border-bottom-right-radius: 50px;
+            border-right-style: solid;
+            border-bottom-style: solid;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>테두리 관련 스타일</h1>
+    <h3>border-style:none</h3>
+    <div class="border-test1"></div>
+    <h3>border-style:hidden &amp; box-shadow:5px 5px 3px 2px gray</h3>
+    <div class="border-test2"></div>
+    <h3>border-style:dotted</h3>
+    <div class="border-test3"></div>
+    <h3>border-style:dashed</h3>
+    <div class="border-test4"></div>
+    <h3>border-style:double</h3>
+    <div class="border-test5"></div>
+    <h3>border-style:groove &amp; border-top-left-radius:50px</h3>
+    <div class="border-test6"></div>
+    <h3>border-style:inset &amp; border-bottom-right-radius:50px</h3>
+    <div class="border-test7"></div>
+    <h3>border-style:outset &amp; border-top-left-radius:50px &amp; border-bottom-right-radius:50px</h3>
+    <div class="border-test8"></div>
+    <h3>border-style:ridge &amp; box-shadow:5px 5px 3px 2px gray</h3>
+    <div class="border-test9"></div>
+    <h3>border-style:solid &amp; box-shadow:5px 5px 3px 2px gray</h3>
+    <div class="border-test10"></div>
+    
+    <br><br>
+
+    <h3>연습문제</h3>
+    <table>
+        <tr>
+            <td id="top-left"></td>
+            <td></td>
+            <td id="top-right"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td id="bottom-left"></td>
+            <td></td>
+            <td id="bottom-right"></td>
+        </tr>
+    </table>
+    
+
+    <br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>

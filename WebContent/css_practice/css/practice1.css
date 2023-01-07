@@ -1,0 +1,23 @@
+/* div {
+    width: 100px;
+    height: 100px;
+    border: 1px solid black;
+} */
+
+.container {
+    border: 1px solid #ccc;
+    width: 500px;
+    padding: 10px;
+    margin: 20px auto;  /*left, right자리에 'auto'를 입력하여 자동으로 가운데로 오게 만들 수 있다*/
+}
+.subject {
+    color: #ad3000;
+    font-weight: 700;
+    font-size: larger;
+}
+ul {
+    list-style-type: none;
+}
+li {
+    line-height : 2.0;  /*행의 높이*/
+}
