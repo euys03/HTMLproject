@@ -1,0 +1,27 @@
+/* container를 통해 폼의 크기를 고정 
+    - 웹 브라우저의 크기를 늘리거나 줄여도 폼의 크기는 변동되지 않는다.*/
+#container {
+    width: 700px;
+}
+
+ul {
+    list-style-type: none;  /* <li>태그의 반점 없애기 */
+    padding-left: 0;    /* <li>태그 좌측이동 */
+}
+
+/* <li>태그 정렬 */
+li {
+    margin: 10px;   /* <li>태그들 간 상하간격 */
+}
+
+#shipping li label {
+    /* 글자 포함 80px의 간격을 유지하며 왼쪽(float:left)에 입력칸이 오게된다 */
+    width: 80px;
+    text-align: left;   /*텍스트 왼쪽 정렬*/
+    float: left;
+}
+
+/* 입력칸 너비 조정, 콤마(,)로 여러 개 한번에 적용 가능 */
+input[type=text], input[type=email], input[type=tel] {
+    width: 300px;
+}

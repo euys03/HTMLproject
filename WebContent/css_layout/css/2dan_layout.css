@@ -1,0 +1,55 @@
+div {
+    --border : 1px solid black;
+/* border의 주석을 삭제하면 너비 높이의 %가 맞지 않아 배치가 달라진다. 
+    -> 해결방법) box-sizing을 border-box로 설정하여 box의 크기를 border까지 적용하면 해결된다.
+    -> (5.background.html)에서의 'background-clip'과 비슷하다 */
+    box-sizing: border-box;
+}
+
+/* 모든 요소에 적용시키는 스타일(*)
+- 헤더가 가지고 있는 모든 스타일을 리셋한 것. (처음부터 직접 모든 것을 설정 가능)
+- 자동으로 <h1>태그와 표 사이에 padding처럼 자동으로 일정 거리만큼 떨어져있지만 모두 리셋한다.
+- (사용방법) 보통 reset.css 파일을따로 만들어 link로 연결하여 사용한다. */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#container {
+/* container의 너비를 지정하여 고정시키면 웹브라우저의 사이즈를 변화시켜도 폼의 크기는 고정되어 있다. */
+    width: 1200px;
+    /* 가운데 정렬 */
+    margin: 0 auto;
+}
+
+#header {
+    width: 100%;
+    height: 100px;
+    background-color: antiquewhite;
+}
+
+#main {
+    height: 500px;
+    background-color: azure;
+}
+
+    #main-layer1 {
+        width: 20%;
+        height: inherit;
+        background-color: cadetblue;
+    /* float : 글과 그림이 같이 있을 경우 그림의 위치를 나타낸다 ex)글 앞으로/어울림/글 뒤로와 동일 */
+        float : left;
+    }
+    #main-layer2 {
+        width: 80%;
+        height: inherit;
+        background-color: aquamarine;
+        float : left;
+    }
+
+
+#footer {
+    height: 100px;
+    background-color: crimson;
+}

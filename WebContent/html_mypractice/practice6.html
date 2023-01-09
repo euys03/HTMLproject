@@ -5,33 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>연습문제6</title>
-    <style>
-        /* <div>를 통해 웹 브라우저를 보기 편하게 만든다 */
-        div { 
-            /* <div>태그에 테두리를 지정하고자하는 경우 */
-            border: 1px solid black;
-            /* 가운데로 옮기고자하는 경우 */
-            padding: 20px 40px;
-        }
-
-    </style>
+    <link rel="stylesheet" href="./css/practice6.css">
 </head>
 <body>
-    <div>
-        <h1>프런트엔드 개발자 지원서</h1>
+    <div id="container">
+        <h1>프론트엔드 개발자 지원서</h1>
         <p>HTML, CSS, Javascript에 대한 기술적 이해와 경험이 있는 분을 찾습니다.</p>
         <hr>
         <form action="">
             <h4>개인정보</h4>
-            <ul>
+            <ul id="private-info">
                 <li>
                     <!-- <placeholder>태그 : 입력칸 내 가이드 메시지 -->
-                    이름
-                    <input type="text" placeholder="공백없이 입력하세요.">
+                    <label for="user-name">이름</label>
+                    <input type="text"  id="user-name" placeholder="공백없이 입력하세요.">
                 </li>
                 <li>
-                    연락처
-                    <input type="tel">
+                    <label for="phone">연락처</label>
+                    <input type="tel" id="phone">
                 </li>
             </ul>
             <h4>지원분야</h4>

@@ -1,0 +1,56 @@
+/* container를 통해 웹 브라우저의 크기를 조절하여도 
+    폼의 크기는 고정되어 같이 움직이지 않는다.*/
+#container {
+    width: 600px;
+}
+
+p {
+    font-weight: bolder;
+}
+fieldset legend {
+    font-weight: bold;
+}
+
+/* 주문할 상품의 입력칸 너비 조절 */
+input[type=number] {
+    width: 30px;
+    margin-left: 10px;
+}
+
+/* 배송정보 입력칸 너비 조정, 콤마(,)로 여러 개 한번에 적용 가능 */
+input[type=text], input[type=email], input[type=tel] {
+    width: 300px;
+}
+
+/* <li>태그의 반점 제거 및 좌측이동 */
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+/* <li>태그들의 상하 간격조절 */
+li {
+    margin: 10px;
+}
+
+#shipping li label {
+    width: 80px;
+    text-align: left;
+    float: left;
+}
+
+/* 주문하기/취소하기 버튼 간격 및 위치 조절 */
+#button-area {
+    margin-top: 20px;
+    text-align: center;
+}
+
+
+input[type=submit], input[type=reset] {
+    width: 150px;
+    height: 40px;
+    background-color: #fafafa;
+    border: 1px solid #ccc;
+    box-shadow: 1px 1px 1px #ccc;
+    text-align: center; /*텍스트 가운데 정렬*/
+}

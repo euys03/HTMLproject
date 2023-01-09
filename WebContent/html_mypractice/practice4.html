@@ -5,27 +5,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>연습문제4</title>
+    <link rel="stylesheet" href="./css/practice4.css">
 </head>
 <body>
     <h1>레드향 주문하기</h1>
+    <div id="container">
     <form action="">
         <!-- <fieldset>태그 : 폼의 테두리 생성 -->
         <!-- <legend>태그 : 폼의 설명 작성 -->
         <fieldset>
             <legend>배송 정보</legend>
-            <ul>
-                <li>이름</li> 
-                <!--<required>태그 : 아무 값도 입력하지 않고 전송하려는 것을 막는 태그(null 여부)-->
-                    <input type="text" required>
-                <li>배송주소</li>
-                    <input type="text" required>
-                <li>이메일</li>
-                    <input type="email">
-                <li>연락처</li> 
-                <!--<placeholder>태그 : 입력칸 내에 가이드 메시지 출력가능-->
-                    <input type="tel" placeholder="하이픈 빼고 입력해주세요(01012345678)">
-                <li>배송 지정</li>
-                    <input type="date"> (주문일로부터 최소 3일 이후)
+            <ul id="shipping">
+                <li>
+                    <!-- <label>태그 : 입력칸이 아닌 텍스트를 클릭하여도 입력칸에 접근 가능 -->
+                    <label for="user-name">이름</label>
+                    <!--<required>태그 : 아무 값도 입력하지 않고 전송하려는 것을 막는 태그(null 여부)-->
+                    <input type="text" id="user-name" required>
+                </li> 
+                <li>
+                    <label for="addr">배송 주소</label>
+                    <input type="text" id="addr" required>
+                </li>
+                <li>
+                    <label for="mail">이메일</label>
+                    <input type="email" id="mail">
+                </li>
+                <li>
+                    <label for="phone">연락처</label>
+                    <!--<placeholder>태그 : 입력칸 내에 가이드 메시지 출력가능-->
+                    <input type="tel" id="phone" placeholder="하이픈 빼고 입력해주세요(01012345678)">
+                </li> 
+                <li>
+                    <label for="d-day">배송지정</label>
+                    <input type="date" id="d-day"> (주문일로부터 최소 3일 이후)
+                </li>
             </ul>
         </fieldset>
         <div>
@@ -33,5 +46,6 @@
             <input type="reset" value="취소하기">
         </div>
     </form>
+    </div>
 </body>
 </html>

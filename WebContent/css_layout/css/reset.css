@@ -1,0 +1,6 @@
+/* 원래 태그가 가지고 있는 모든 스타일을 리셋하여 처음부터 모든 것을 컨트롤한다. */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
