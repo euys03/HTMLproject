@@ -1,0 +1,172 @@
+img {
+    width: 100%;
+    height: 100%;
+}
+
+/* main 영역의 이미지들의 위치 조정 */
+.main-img {
+    width: 95%;
+    height: 90%;
+    margin-left: 7px;
+}
+
+/* main 영역에 작성하는 텍스트의 위치와 상하 간격 조정 */
+.img-caption {
+    text-align: center;
+    line-height: 1;
+}
+
+#container {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+#header {
+    width: 100%;
+    height: 100px;
+}
+    #header-layer1 {
+        width: 15%;
+        height: 100%;
+        --padding: 10px;
+        --background-color: aquamarine;
+        float: left;
+    }
+    #header-layer2 {
+        width: 55%;
+        height: 100%;
+        --padding: 15px;
+        --background-color: aqua;
+        float: left;
+    }
+
+#nav {
+    height: 50px;
+    background-color: skyblue;
+}
+    /* <ul>태그의 공간을 0으로 리셋함으로서 nav영역의 텍스트들 모두 왼쪽으로 정렬 */
+    ul {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+    }
+
+    ul li {
+        list-style: none;
+        float: left;
+        width: 25%;     /* li들 간의 간격 */
+        text-align: center;  /* 텍스트 정렬 */
+        line-height: 50px;  /* nav영역과 텍스트의 상하 간격(50=가운데) */
+        background-color: rgb(70, 180, 70);
+        --color: white;
+    }
+
+    /* 링크형식(하이퍼링크)으로 연결된 a태그 색 및 글꼴 설정 */
+    a {
+        text-decoration: none;
+        font-family: "고딕체";
+    }
+    li a:link {
+        color: white;
+    }
+    li a:visited {
+        color: white;
+    }
+
+#main {
+    height: 500px;
+    --background-color: bisque;
+}
+    #main-layer1 {
+        width: 19%;
+        height: 100%;
+        /* background-img 를 사용하여 url을 통해 사진을 삽입한다. */
+        background-image: url(../gogreen_img/left_img.jpg);
+        background-size: cover; 
+        /* cover: 지정 요소 모두 덮기, auto: 원래 이미지 크기, contain: 지정요소안에 다 들어오도록, 백분율: 50% 60% 값 사용 */
+        float: left;
+    }
+    #main-layer2 {
+        width: 60%;
+        height: 100%;
+        float: left;
+    }
+        #main-top {
+            width: 100%;
+            height: 50%;
+
+        }
+            #top-left {
+                width: 50%;
+                height: 100%;
+
+                float: left;
+            }
+            #top-right {
+                width: 50%;
+                height: 100%;
+
+                float: left;
+            }
+
+        #main-bottom {
+            width: 100%;
+            height: 50%;
+
+        }
+            #bottom-left {
+                width: 50%;
+                height: 100%;
+                float: left;
+
+            }
+            #bottom-right {
+                width: 50%;
+                height: 100%;
+                float: left;
+
+            }
+
+    #main-layer3 {
+        width: 21%;
+        height: 100%;
+        float: left;
+        --background-color: yellow;
+    }
+        #aside-top {
+            width: 100%;
+            height: 17%;
+        }
+            table {
+                padding: 2px;
+            }
+            button {
+                padding: 8px 7px;
+
+            }
+            /* '회원가입 ID/PW찾기' 가운데 정렬 */
+            #text-area {
+                text-align: center;
+            }
+
+        #aside-mid {
+            width: 100%;
+            height: 60%;
+            background-image: url(../gogreen_img/right_img.jpg);
+            background-repeat: no-repeat;   /* 배경 이미지 반복 여부(no-repeat:반복x) */
+            background-size: 100% 100%;     /* 이미지 너비, 높이 범위 설정 */
+            float: left;
+        }
+        #asside-bottom {
+            width: 100%;
+            height: 23%;
+            background-image: url(../gogreen_img/me_chat.jpg);
+            background-repeat: no-repeat;   /* 배경 이미지 반복 여부(no-repeat:반복x) */
+            background-size: 100% 100%;     /* 이미지 너비, 높이 범위 설정 */
+            float: left;
+        }
+
+#footer {
+    height: 100px;
+
+}

@@ -1,0 +1,139 @@
+/* 연습문제와 동일한 폰트를 사용하기 위해 import 및 글꼴('Merienda', cursive)설정 */
+@import url('https://fonts.googleapis.com/css2?family=Merienda:wght@700&display=swap');
+
+* {
+    margin: 0;  /* 마진 리셋 */
+    padding: 10; /* 패딩 리셋 */
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;  /* 하이퍼링크 밑줄 없애기 */
+}
+
+
+ul {
+    list-style-type: none;  /* 반점(불릿기호) 보이지 않도록 none 설정 */
+}
+
+#container {
+    margin: 0 auto;
+    width: 1200px;  /* width를 줌으로서 margin 0이 잘 작동되도록 하기 */
+    background-color: white;
+}
+
+header {
+    width: 100%;
+    height: 100px;
+    background-color: #045;
+}
+
+#logo {
+    float: left;
+    width : 250px;
+    height: 100px;
+    line-height: 100px;     /* 행간 높이 조정 */
+    padding-left: 20px;     /* 왼쪽 여백 주기 */
+}
+
+#logo h1 {
+    font-family: 'Merienda', cursive;
+    font-weight: 700;
+    font-size: 40px;
+    color: #fff;
+    text-shadow: 0 -1px 0 #222;
+}
+
+
+nav {
+    float: right;      /* nav 영역 오른쪽으로 붙이기 */
+    width: 900px;
+    height: 100px;
+    padding-top: 40px;  /* top 여백 주기 */
+}
+
+    #topMenu {
+        height: 60px;
+    }
+
+    #topMenu li {
+        float: left;    /* 인라인 속성으로 만들기 */
+    }
+
+    #topMenu > li > a {
+        display: block;     /* 블록 속성으로 만들기 */
+        font-size: 1.1em;
+        color: #fff;
+        font-weight: 600;
+        padding: 20px 60px;
+    }
+
+    #topMenu > li > a:hover {
+        color: #1fa8f9;
+        text-shadow: 0 -2px #222;
+    }
+
+
+/* 본문 */
+.contents {
+    width: 1000px;  /* 웹 브라우저: 전체(1200px)보다 조금 적게 */
+    margin: 50px auto;  /* 웹 브라우저 가운데 정렬 */
+}
+
+    main > section {
+        margin-top: 60px;
+    }
+
+    main h2 {
+        font-size: 1.5em;
+        line-height: 2.5;
+    }
+    main div {
+        margin-top: 20px;
+    }
+    main h3 {
+        font-size: 1.2em;
+        line-height: 2.2;
+    }
+    .detail p {
+        line-height: 2.0;
+        color: #222;
+    }
+    .detail > img {
+        float: left;
+        border-radius: 20px;    /* 이미지 모서리 */
+        margin-right: 50px;
+    }
+
+    /* 상세일정 */
+    .schedule h3 {
+        font-size: 1.2em;
+    }
+    .schedule ul li {
+        line-height: 2;
+    }
+
+
+/* 푸터 */
+footer {
+    width: 1200px;
+    height: 100px;
+    border-top: 2px solid #222; /* 위에만 선을 긋겠다. */
+}
+    #bottomMenu {
+        width: 100%;
+        height: 20px;
+        margin-left: 60px;
+    }
+    #bottomMenu ul li {
+        float: left;    /* 인라인으로 만들기 */
+        padding: 5px 20px;  /*  */
+        border-right: 1px solid #ddd;
+    }
+    #bottomMenu ul li:last-child {
+        border: none;   /* 마지막 li border (|) 없애기 */
+    }
+    #bottomMenu ul li a, #bottomMenu ul li a:visited {
+        font-size : 15px;
+        color: #666;
+    }
