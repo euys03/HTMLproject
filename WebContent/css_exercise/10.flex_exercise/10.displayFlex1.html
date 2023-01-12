@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display : Flex (flex-direction 옵션)</title>
+    <style>
+        .container {
+            width: 700px;
+            background-color: #eee;
+            border: 1px solid #222;
+            /* flex는 container내에 작성!
+            - container안에 아이템들을 모두 배치하여 클래스의 영향을 받을 수 있게 해야함 */
+            display: flex;  
+            flex-direction: row-reverse;
+        }
+        .box {
+            background-color: #222;
+            width: 80px;
+            margin: 5px;
+            padding: 5px 45px;
+        }
+        p {
+            color: #fff;
+            text-align: center;
+        }
+
+
+        /* 1. flex-direction 속성 (정렬) */
+            /* 1) row : 기본값 */
+        #opt1 {
+            flex-direction: row;
+        }
+            /* 2) row-reverse : 오른쪽부터 1 */
+        #opt2 {
+            flex-direction: row-reverse;
+        }
+            /* 3) column : 위->아래로 1,2,3 */
+        #opt3 {
+            flex-direction: column;
+        }
+            /* 4) column-reverse : 아래->위로 1,2,3 */
+        #opt4 {
+            flex-direction: column-reverse;
+        }
+
+
+    </style>
+</head>
+<body>
+    <!-- div.container>div.box*3>p{$}
+         div의 클래스=container, 내부div의 클래스=box -->
+    <div class="container" id="opt1">
+        <div class="box">
+            <p>1</p>
+        </div>
+        <div class="box">
+            <p>2</p>
+        </div>
+        <div class="box">
+            <p>3</p>
+        </div>
+    </div>
+    <div class="container" id="opt2">
+        <div class="box">
+            <p>1</p>
+        </div>
+        <div class="box">
+            <p>2</p>
+        </div>
+        <div class="box">
+            <p>3</p>
+        </div>
+    </div>
+    <div class="container" id="opt3">
+        <div class="box">
+            <p>1</p>
+        </div>
+        <div class="box">
+            <p>2</p>
+        </div>
+        <div class="box">
+            <p>3</p>
+        </div>
+    </div>
+    <div class="container" id="opt4">
+        <div class="box">
+            <p>1</p>
+        </div>
+        <div class="box">
+            <p>2</p>
+        </div>
+        <div class="box">
+            <p>3</p>
+        </div>
+    </div>
+</body>
+</html>

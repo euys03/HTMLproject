@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display : Flex3 (align-self 옵션)</title>
+    <style>
+        .container {
+            width: 100%;
+            height: 150px;
+            display: flex;
+            background-color: #eee;
+            border: 1px solid #222;
+            margin-bottom: 20px;
+            --flex-direction: row;
+            --justify-content: flex-start;
+            align-items: center;
+        }
+        .box {
+            background-color: #222;
+            margin: 5px;
+            padding: 5px 45px;
+        }
+        p {
+            color: #fff;
+            text-align: center;
+        }
+
+
+    /* 클래스(.box)를 사용하면 box클래스 모두에 적용되므로 id(#box)를 사용. */
+
+        /* 4. align-self 옵션 (메인 축 정렬 옵션 -> 세로축) */
+            /* 1) flex-start : 메인(세로)축 기준 맨 위 */
+        #box1 {
+            align-self: flex-start;
+        }
+            /* 2) stretch : 기본값 항목을 늘려 교차축에 가득차게 배치 */
+        #box3 {
+            align-self: stretch;
+        }
+
+
+    </style>
+</head>
+<body>
+    <!-- div.container>div.box*3>p{$}
+        div의 클래스=container, 내부div의 클래스=box -->
+    <div class="container" id="opt1">
+        <div class="box" id="box1">
+            <p>1</p>
+        </div>
+        <div class="box">
+            <p>2</p>
+        </div>
+        <div class="box" id="box3">
+            <p>3</p>
+        </div>
+        <div class="box">
+            <p>4</p>
+        </div>
+    </div>
+
+</body>
+</html>

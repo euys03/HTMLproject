@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display : Flex3 (flex-flow 옵션)</title>
+    <style>
+        .container {
+            display: flex;
+            background-color: #eee;
+            border: 1px solid #222;
+            margin-bottom: 20px;
+            --flex-direction: row;
+            --justify-content: flex-start;
+            --align-items: stretch;
+        }
+        .box {
+            background-color: #222;
+            margin: 5px;
+            padding: 5px 45px;
+        }
+        p {
+            color: #fff;
+            text-align: center;
+        }
+        
+
+        
+        /* 5. flex-flow 옵션 */
+            /* 1) wrap : 여러 줄로 만들어 줌 */
+        #opt1 {
+            flex-flow: wrap;
+        }
+            /* 2) nowrop(기본값) : 범위를 넘어감 */
+        #opt2 {
+            flex-flow: nowrap;
+        }
+
+
+
+
+    </style>
+</head>
+<body>
+    <!-- div.container>div.box*3>p{$}
+        div의 클래스=container, 내부div의 클래스=box -->
+    <div class="container" id="opt1">
+        <div class="box">
+            <p>1</p>
+        </div>
+        <div class="box">
+            <p>2</p>
+        </div>
+        <div class="box">
+            <p>3</p>
+        </div>
+        <div class="box">
+            <p>4</p>
+        </div>
+        <div class="box">
+            <p>5</p>
+        </div>
+        <div class="box">
+            <p>6</p>
+        </div>
+    </div>
+    <div class="container" id="opt2">
+        <div class="box">
+            <p>1</p>
+        </div>
+        <div class="box">
+            <p>2</p>
+        </div>
+        <div class="box">
+            <p>3</p>
+        </div>
+        <div class="box">
+            <p>4</p>
+        </div>
+        <div class="box">
+            <p>5</p>
+        </div>
+        <div class="box">
+            <p>6</p>
+        </div>
+    </div>
+</body>
+</html>
