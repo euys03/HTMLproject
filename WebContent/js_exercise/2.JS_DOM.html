@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom Access</title>
+</head>
+<body>
+    <h2>Javascript를 이용한 HTML태그 접근</h2>
+    <p>자바스크립트를 이용하여 HTML태그를 동적으로 처리하기 위해서는 DOM객체의
+        메소드를 호출하여 접근해야함.
+    </p>
+    <h3>메소드</h3>
+    <p>
+        1. getElementById("아이디명") 
+        : 태그의 id 속성값을 이용해서 태그 요소 객체정보를 가져옴(1개) <br>
+        2. getElementsByName("이름명") : 태그의 name 속성값을 이용해서 태그 요소의 객체 정보를
+        배열에 담아 가져옴(여러개 존재할 수 있음.) <br>
+        3. getElementsByTagName("태그명") : 태그명을 이용해서 태그들의 객체 정보를
+        배열에 담아 가져옴(여러개 존재할 수 있음.) <br>
+    </p>
+    <p id="p11" name="pp">안녕하세요</p>
+    <p id="p22" name="pp">돔객체</p>
+    <p id="p33" name="pp">자바스크립트</p>
+
+
+<!----------------------------------- 자바 스크립스(JS) 영역 --------------------------------------->
+    <!-- JS : 추가/변경/삭제 가능 -->
+    <script>
+        // 안녕하세요 -> '안녕히 가세요' 로 변경하고자 할 때
+        // var pTag1 = <p id="11" name="pp"> 안녕하세요</p> 는 불가능 (script영역이므로 html불가능 => document사용)
+        // > getElementById : id속성값을 이용하여 속성 선택하여 변경
+        var pTag1 = document.getElementById("p11"); //객체화
+        console.log(pTag1.innerHTML);      // 속성값(.innerHTML)을 사용하여 값을 가져온다 (pTag1 안에 있는 값을 가져오겠다)
+        pTag1.innerHTML = "안녕히가세요";   // DOM을 통해 HTML의 값을 "변경할 수 있다."
+
+        var pTag2 = document.getElementById("p22");
+        console.log(pTag2.innerHTML);   
+        pTag2.innerHTML = "DOM obj";
+
+        var pTag3 = document.getElementById("p33");
+        console.log(pTag3.innerHTML);
+        pTag3.innerHTML = "쉬웠어요";
+
+        // > getElement's'ByName = name속성을 이용하여 '여러' 속성들(Element's')선택
+        var pTags = document.getElementsByName("pp")
+        console.log(pTags);
+
+        // 배열로 되어있어 인덱스로 접근이 가능
+        console.log(pTags);
+        console.log(pTags[0]);
+        console.log(pTags[1]);
+        console.log(pTags[2]);
+        // 모든 <p>태그를 선택
+        var pTagNames = document.getElementsByName("p");
+        console.log(pTagNames);
+
+
+        // ▶ "선택자" 사용방법 -> querySelector 사용
+        // id나 name이 존재하지않으면 선택 불가능했지만 아이디 선택자, 기본속성 선택자 등을 사용하여 유연하게 사용이 가능
+        var pTagSelect = document.querySelector("#p11");    // "#p11", "[name]" 등
+        console.log(pTagSelect);
+    </script>
+    
+</body>
+</html>
