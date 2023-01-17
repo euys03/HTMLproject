@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>속성 변경 실습</title>
+
+    <style>
+        div {
+            border: 1px solid black;
+            background-color: black;
+            height: 100px;
+            width: 100px;
+        }
+    </style>
+
+</head>
+<body>
+    <h3> 문제 1. 색상 선택 후 변경 버튼을 클릭하면 색상이 변경되도록 만들어 보시오</h3>
+    <div id="div1"></div>
+    <!-- type을 'color'로 하면 팔레트를 나타낼 수 있다. -->
+    <input type="color">
+    <button onclick="colorChange();">변경</button>
+    <hr><hr><br>
+
+    <h3> 문제 2. 버튼에 따른 크기 조절이 가능하게 만들어 보시오</h3>
+    <div id="div2"></div>
+    <button onclick="halfsize();">반으로 만들기</button>
+    <button onclick="defaultSize();">원본</button>
+    <button onclick="doubleSize();">두 배로 만들기</button>
+
+    <br><br><br><br><br>
+
+
+    <script>
+        // 문제1. 색상 변경하기
+        function colorChange() {
+            //alert("test");  // 확인용으로 알림창을 띄워본다.
+                // 1) 내가 선택한 값 가져오기
+            //console.log(document.querySelector("[type=color]").value);  // console에서 확인.
+                // 2) 변경할 대상 선택 (css 영역이므로 style이라는 속성값을 거쳐 background-color 변경)
+            //console.log(document.querySelector("#div1").style.backgroundColor);
+                // 3) 변경 대상에 내가 선택한 색깔 넣기
+            var divTag = document.querySelector("#div1");
+            var colorTag = document.querySelector("[type=color]").value
+            divTag.style.backgroundColor = colorTag.value;
+        }
+
+        // 문제2. 도형 크기 변경하기
+            // 버튼1. 반으로 만들기
+        function halfsize() {
+            //alert("test");  // 확인용 알림창.
+            var divTag = document.querySelector("#div2");
+            // width, height는 css속성이므로 style이라는 속성에서 꺼내서 사용해야한다.
+            divTag.style.width = "50px";
+            divTag.style.height = "50px";
+        }
+            // 버튼2. 원본 크기
+        function defaultSize() {
+            //alert("test");
+            var divTag = document.querySelector("#div2");
+            divTag.style.width = "100px"
+            divTag.style.height = "100px";
+        }
+            // 버튼3. 두 배 크기
+        function doubleSize() {
+            var divTag = document.querySelector("#div2");
+            divTag.style.width = "200px"
+            divTag.style.height = "200px";
+        }
+    </script>
+</body>
+</html>

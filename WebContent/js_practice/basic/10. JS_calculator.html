@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>계산기 실습</title>
+</head>
+<body>
+    <h2>간이 계산기 만들기</h2>
+    첫번째 값 : <input type="text" id="input1"><br>
+    두번째 값 : <input type="text" id="input2"><br>
+    <!-- input태그로 button 만들어보기 
+        <button>태그는 태그 사이에 값 넣기 : <button>+</button>
+        <input>태그는 value에 값(value="+")을 넣어야만 확인할 수 있다. -->
+    <input type="button" value="+" onclick="calculate('+');">
+    <input type="button" value="-" onclick="calculate('-');">
+    <input type="button" value="x" onclick="calculate('x');">
+    <input type="button" value="/" onclick="calculate('/');">
+    <input type="button" value="%" onclick="calculate('%');">
+    <br><br>
+    계산결과 : <span id="result"></span>
+
+    <script>
+
+/*
+    // input1, input2, result, span태그 -> 전역변수로 선언하여 한번만 작성
+        // 1) 첫번째 값(value) 가져오기
+        var input1 = document.querySelector("#input1").value;
+        // 2) 두번째 값(value) 가져오기
+        var input2 = document.querySelector("#input2").value;
+        // 3) 연산하기 선언
+        var result = 0;
+        // 4) 계산결과에 출력하기 => span태그 사이에 입력
+        var spanTag = document.querySelector("#result");
+*/
+
+        
+/* ---------------------------- 최종 방법 ---------------------------------- */
+//  버튼(+,-,x,/,%)마다 함수를 생성하지 않고, calculate라는 함수를 따로 만들어 
+//  연산자 값(operator(+,-,x,/,%))을 입력받아 출력 => [switch-case문 사용]
+
+        function calculate(operator) {
+            // 1) 첫번째 값(value) 가져오기 -> 형변환(Number) 필요
+            var input1 = Number(document.querySelector("#input1").value);
+            // 2) 두번째 값(value) 가져오기 -> 형변환(Number) 필요
+            var input2 = Number(document.querySelector("#input2").value);
+            // 3) 연산하기 선언
+            var result = 0;
+            // 4) 계산결과에 출력하기 => span태그 사이에 입력
+            var spanTag = document.querySelector("#result");
+            switch(operator) {
+                case '+' : result = input1 + input2; break;
+                case '-' : result = input1 - input2; break;
+                case 'x' : result = input1 * input2; break;
+                case '/' : result = input1 / input2; break;
+                case '%' : result = input1 % input2; break;
+            }
+            spanTag.innerHTML = result;
+        }
+/* -------------------------------------------------------------------------- */
+   
+/*
+        // 덧셈(+)
+        function plus() {
+            //alert("test");
+            // 연산하기(value는 문자열이므로 더한 값이 아닌 두 값이 연속출력됨 => 형변환(Number 혹은 parseInt))
+            result = Number(input1.value) + parseInt(input2.value);
+            spanTag.innerHTML = result;
+        }
+        // 뺄셈(-)
+        function minus() {
+            //alert("test");
+            result = Number(input1.value) - parseInt(input2.value);
+            spanTag.innerHTML = result;
+        }
+        // 곱셈(*)
+        function  multiply() {
+            result = Number(input1.value) * parseInt(input2.value);
+            spanTag.innerHTML = result;
+        }
+        // 나눗셈(/)
+        function divide() {
+            result = Number(input1.value) / parseInt(input2.value);
+            spanTag.innerHTML = result;
+        }
+        // 나머지(%)
+        function mod() {
+            result = Number(input1.value) % parseInt(input2.value);
+            spanTag.innerHTML = result;
+        }
+*/
+    </script>
+</body>
+</html>

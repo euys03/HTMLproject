@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>브라우저 객체 모델</title>
+</head>
+<body>
+    <h1>Window 객체</h1>
+    <p>> Window 객체는 자바스크립트의 최상위 객체이며, BOM과 DOM으로 나뉜다.</p>
+    
+    <h3>1. Window 객체</h3>
+    <p>브라우저 창에 대한 설정을 하는 객체</p>
+    <button onclick="CallConfirm();">confirm 확인</button><br><br>
+    <button onclick="CallPrompt();">prompt 확인</button>
+    
+    
+
+    <script>
+    // 'confirm', 'prompt' 등과 같은 기능은 HTML과 연관이 없으며, 브라우저가 가지고있는 기능을 불러서 사용하는 것.
+        // alert()는 '확인'만 존재, confirm()은 '확인, 취소' 두 개의 버튼 존재 (확인,취소버튼에 값 지정 가능)
+
+        //window.alert();
+        function CallConfirm() {
+            var result = window.confirm("확인을 누르시면 true, 취소를 누르시면 false 반환");
+            console.log(result);
+        }
+        function CallPrompt() {
+            var userId = window.prompt("아이디를 입력하세요");    // prompt : 경고창에 값(사용자의 입력) 입력 가능
+            console.log(userId);
+        }
+
+    </script>
+
+    <br><br><br><br><br><br><br><br><br>
+
+</body>
+</html>

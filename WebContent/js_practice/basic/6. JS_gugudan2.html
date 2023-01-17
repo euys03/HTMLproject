@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>구구단 출력하기2</title>
+    
+    <!-- 구구단2. <div>태그 추가 / <Style> CSS 사용하여 출력 -->
+    <style>
+        div {
+            border: 1px solid #ccc;
+            display: inline-block;
+            margin: 15px;               /*각 단 간 간격조정*/
+            padding: 0 20px 30px 20px;  /*각 단 내 간격조정*/
+            line-height: 1.5;           /*행 간 간격조정*/
+        }
+        div h3 {
+            text-align: center;
+        }
+    </style>
+
+</head>
+<body>
+
+    <script>
+        document.write("<h1>구구단2</h1>");
+        var i, e;
+        for(i = 1; i < 10; i++) {
+            document.write("<div>");
+            document.write("<h3>" + i + "단</h3>");
+            for(e = 1; e < 10; e++) {
+                document.write(i + " X " + e + " = " + i*e + "<br>"); 
+            }
+            document.write("</div>");
+        }
+    </script>
+
+</body>
+</html>

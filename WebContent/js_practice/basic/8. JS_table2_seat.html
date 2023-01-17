@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자리배치도</title>
+    <style>
+        table, td {
+            border: 1px solid #ccc;
+            border-collapse: collapse;
+        }
+        td {
+            padding: 5px;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <h1>테이블2. 좌석배치도 만들기</h1>
+    <script>
+        var customer = prompt("입장객은 몇 명인가요?");
+        var colNum = prompt("한 줄에 몇 명씩 앉습니까?");   // col : 열
+        // >> 문제해결1) 행의 개수 처리
+        var rowNum = parseInt(customer/colNum) + 1;     // row : 행 / parseInt(버림) : (=int)소숫점 버림
+        //var rowNum = Math.ceil(customer/colNum);      // ceil(올림) 사용가능 -> 결과 : 자동 형변환
+        console.log(rowNum);
+        var i, e;
+        var count = 1;
+
+        // 테이블 생성(<table>태그)
+        document.write("<table>");
+            // 행 생성(<tr>태그)
+        for(i = 1; i <= rowNum; i++) {
+            document.write("<tr>");
+                // 열 생성(<td>태그)
+            for(e = 1; e <= colNum; e++) {
+                // >> 문제해결2) 빈 좌석 처리
+                if(count > customer) break;     // 2번.   
+                document.write("<td>좌석 " + count + "</td>");
+                count++;
+            }
+            document.write("</tr>");
+        }
+        document.write("</table>");
+    </script>
+
+</body>
+</html>

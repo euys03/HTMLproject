@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>구구단 출력하기3</title>
+
+    <!-- 구구단3. 테이블로 출력 (div태그 -> table태그로 변경) -->
+    <style>
+        table {
+            float: left;
+            margin: 20px;
+        }
+
+        table, th{
+            border: 1px solid #ccc;
+            border-collapse: collapse;  /* 두 줄을 한 줄로 제거 */
+        }
+
+        th, td {
+            padding: 10px 15px;
+        }
+
+        th { background-color: #eee; }      /* 테이블 음영 */
+        td { border: 1px dotted #222; }     /* 테이블 점선(dotted) */
+    </style>
+
+</head>
+<body>
+
+    <script>
+        document.write("<h1>구구단3</h1>");
+        var i, e;
+        for(i = 1; i < 10; i++) {
+            document.write("<table>");
+            document.write("<tr><th>" + i + "단</th></tr>");
+            for(e = 1; e < 10; e++) {
+                document.write("<tr><td>" + i + " X " + e + " = " + i*e + "</td></tr>"); 
+            }
+            document.write("</tale>");
+        }
+    </script>
+    
+</body>
+</html>
