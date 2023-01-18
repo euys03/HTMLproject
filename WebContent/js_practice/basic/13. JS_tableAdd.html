@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS 테이블 추가하기</title>
+</head>
+<body>
+    <h2>JS 테이블 추가하기</h2>
+    <p>폼 입력양식에 값을 입력하고 추가 버튼을 누르면
+        입력값들을 아래의 테이블에 한줄씩 추가되게 함</p>
+    <form method="post" action="">
+        <label>이름 : <input type="text" id="name"></label>
+        <br>
+        <label>나이 : <input type="text" name="age" id="age"></label>
+        <br>
+        <label>성별 : </label>
+        <input type="radio" name="gender" value="M" id="male"><label for="male"> 남 </label>
+        <input type="radio" name="gender" value="F" id="female"><label for="female"> 여 </label>
+        <br>
+        <label>전화번호 : <input type="tel" id="phone"></label>
+        <br>
+        <label>취미 : </label>
+        <input type="checkbox" name="hobby" value="movie" id="movie"><label for="movie"> 영화보기</label>
+        <input type="checkbox" name="hobby" value="music" id="music"><label for="music"> 음악듣기 </label>
+        <input type="checkbox" name="hobby" value="sport" id="sport"><label for="sport"> 운동 </label>
+        <input type="checkbox" name="hobby" value="reading" id="reading"><label for="reading"> 독서 </label>
+        <input type="checkbox" name="hobby" value="climb" id="climb"><label for="climb"> 등산 </label>
+        <br>
+        <input type="button" value="추가하기" onclick="addUser();">
+    </form>
+    <p id="p3">
+        <table id="tbl" width="500px" border="1" cellspacing="0">
+            <tr>
+                <th>이름</th>
+                <th>나이</th>
+                <th>성별</th>
+                <th>전화번호</th>
+                <th>취미</th>
+            </tr>
+        </table>
+    </p>
+
+
+    <script>
+        var addUser = function() {
+            var name = document.querySelector("#name").value;
+            var age = document.querySelector("#age").value;
+            var gender = document.querySelectorAll("[name=gender]");
+                // gender의 경우 라디오버튼 (둘 중 하나 체크된 값을 가져와야함. - checked함수 사용)
+                // 라디오버튼 특징 : 한가지를 선택할 경우 사용(같은 name값 존재- gender)
+                // id값을 사용하여 각각 선택할 필요가 없으며 하나의 name값으로 간단하게 표현한다.
+            if(gender[0].checked) {
+                gender = "남";
+            }else if(gender[1].checked) {
+                gender = "여";
+            }
+            /* // checked함수를 사용하여 male과 female 이 체크되어 있는지 각각 확인하여 gender결정
+            var male = document.querySelector("#male");
+            var female = document.querySelector("#female");
+            if(male.checked) {
+                // 체크됨 (checked 사용)
+                console.log("남자 체크됨");
+            }
+            if(female.checked) {
+                // 체크됨 (checked 사용)
+                console.log("여자 체크됨");
+            }
+            */
+            var phone = document.querySelector("#phone").value;
+            var hobby = document.querySelectorAll("[name=hobby]");  // 체크박스(중복체크 가능)
+                // gender와 동일하게 각 체크박스의 name값이 동일(hobby)
+            var hobbyVal = "";
+            for(var i = 0; i < hobby.length; i++) {
+                // hobby속성의 인덱스에 접근하여 체크되어있는지 확인(checked)
+                if(hobby[i].checked) {
+                    hobbyVal += hobby[i].value + " ";
+                }
+            }
+
+            var tableTag = document.querySelector("#tbl");
+            // '+=' 사용하여 누적
+            tableTag.innerHTML += "<tr><td>"+ name +"</td><td>"+ age +"</td><td>"+ gender +"</td><td>"+ phone +"</td><td>"+hobbyVal+"</td></tr>"
+        }
+    </script>
+
+    <br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS 배열 문제1</title>
+</head>
+<body>
+    <h1> 배열 실습 문제 </h1>
+
+    문제1. 다음 보기에 있는 데이터들은 배열로 받고 하나의 배열로 합치도록 하여라.<br>
+        이때 입력 필드에 배열에 있는 데이터를 전송하면 배열의 alert를 통하여<br>
+        배열의 위치를 알려주고, 없으면 "존재하지 않습니다" 를 알려주어라.<br>
+    <fieldset>
+        <legend>보기</legend>
+        <label id="la1">사과,바나나,당근</label><br>
+        <label id="la2">김밥,치즈,떡볶이,햄버거</label><br>
+        <label id="la3">환타,사이다,콜라</label><br>
+        <label id="la4">고양이,강아지</label><br>
+    </fieldset><br>
+        <input type="text" placeholder="찾을 문자열을 입력하세요" size="100" id="text1">
+    <div id="result1"> </div>
+    <button onclick="findItmes();"> 전송 및 처리 </button>
+    <br><br>
+    <hr><hr>
+    <br><br>
+
+
+
+    문제2. 다음 보기에 있는 문자열을 가지고 정답과 같이 만들어라. (별도의 문자열을 쓰면 안됨)<br>
+        그리고 출력 부분에 출력하도록 하여라.
+        정답 : "khlove" 
+    <fieldset>
+        <legend>보기</legend>
+        <label id="stringla1">h k</label><br>
+        <label id="stringla2">e v o l</label><br>
+    </fieldset><br>
+        <p style="border:1px solid red;" id="print">이 부분에 정답이 출력 될 수 있도록 하세요</p>
+    <div id="result1"> </div>
+    <button onclick="goReverse();"> 처리 </button>
+    <br><br>
+    <hr><hr>
+    <br><br>
+
+
+
+    문제3. 다음 문자열을 입력 받은 후 출력 버튼 클릭 시 모든 입력한 문자열이 출력되도록 만들어라.  
+    <fieldset>
+        <legend>입력</legend>
+        <input type="text" id="strInput"> <button onclick="input()">입력</button>
+    </fieldset><br>
+        <p style="border:1px solid red;" id="print2">이 부분에 정답이 출력 될 수 있도록 하세요</p>
+    <div id="result1"> </div>
+    <button onclick="showItems();"> 출력 </button>
+
+
+
+
+    <script>
+        // 문제1.
+        function findItmes() {
+            // id = "la1"에서 innerHTML가져오기 = 'STRING'이 된다
+            // split메소드 사용하여 ','를 기준으로 자른다. => 배열에 저장
+            var la1Arrs = document.querySelector("#la1").innerHTML.split(",");
+            var la2Arrs = document.querySelector("#la2").innerHTML.split(",");
+            var la3Arrs = document.querySelector("#la3").innerHTML.split(",");
+            var la4Arrs = document.querySelector("#la4").innerHTML.split(",");
+            // 세 개의 배열 합치기 (concat)
+            var arrs = la1Arrs.concat(la2Arrs,la3Arrs,la4Arrs);
+            var inputTag = document.querySelector("#text1");
+            var index = arrs.indexOf(inputTag.value);
+            if(index != -1) {
+                console.log(inputTag.value + "는 배열 index의 "+index+"번째 있습니다.");
+            }else{
+                console.log("존재하지 않습니다.");
+            }
+
+        }
+
+
+
+        // 문제2. 
+        function goReverse() {
+            // 1. 눈에 보이는 사이값 배열로 만들기
+            // 2. 배열의 reverse하기 (reverse)
+            // 3. 배열끼리 합치기(concat)
+            // 4. 배열에서 문자열로 만들기(join)
+            // 5. p 태그에서 출력하기(사이값에 넣기)
+
+            // 1. 공백(" ")을 기준으로 배열로 만들기1 [h, k]
+            var la1Arrs = document.querySelector("#stringla1").innerHTML.split(" ");
+            // console.log(la1Arrs);
+
+            // 공백(" ")을 기준으로 배열로 만들기2 [e, v, o, l]
+            var la2Arrs = document.querySelector("#stringla2").innerHTML.split(" ");
+
+            // 2. 배열을 역순으로 출력하기1 (.reverse)
+            la1Arrs.reverse();
+            // console.log(la1Arrs);
+
+            // 배열을 역순으로 출력하기2 (.reverse)
+            la2Arrs.reverse();
+
+            // 3. 배열끼리 합치기 (.concat)
+            var resultArrs = la1Arrs.concat(la2Arrs);
+            // console.log(resultArrs.join(""));
+
+            // 4. 배열 결합 후 문자열로 변환 
+            // 5. p 태그에서 출력하기 (눈에 보이는 사이값으로 넣기)
+            document.querySelector("#print").innerHTML = resultArrs.join("");
+        }
+
+
+
+        // 문제3.
+        // 1. 입력을 누를 때마다 입력한 값이 누적이 되어야 함
+        // 2. 배열 선언해서 누적을 함 -> 누를 때마다 누적출력 (*push사용)
+        // 3. 입력을 누를 때마다 배열이 초기화되어서 누적이 안됨
+        // 4. 배열을 전역변수로 이동시키니 누적되는 것 확인
+        // 5. P태그에 출력
+
+        // 누를때마다 초기화하고 배열을 만드는 문제점. -> 전역변수로 빼내어 누적할 수 있도록
+        var total = [];
+
+        // 입력창 
+        function input() {
+            var inputTag = document.querySelector("#strInput");
+            total.push(inputTag.value);
+            // 누를 때마다 들어간다
+            console.log(total);
+        }
+        // 출력창
+        function showItems() {
+            var pTag = document.querySelector("#print2");
+            // 배열을 문자열로 변경 방법 (.join 사용 or toString 사용)
+            pTag.innerHTML = total.join(", ");
+            //pTag.innerHTML = total.toString();
+        }
+    </script>
+    
+</body>
+</html>

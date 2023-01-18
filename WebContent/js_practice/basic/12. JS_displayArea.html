@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>표시영역 변경하기</title>
+
+    <style>
+        fieldset {
+            width: 400px;
+            text-align: center;
+            background-color: #dbdbdb;
+        }
+        div.box {
+            background-color: gold;
+            width: 450px;
+            height: 60px;
+            margin: 3px;
+            padding: 10px;
+            display: none;  
+            /* display속성 
+            (기본값) none:공간존재x,안보이게, 텍스트만 표시 / block:세로정렬 / inline:가로정렬 / 
+            inline-block:가로정렬 */
+        }
+    </style>
+
+</head>
+<body>
+    <h1>JS 표시영역 변경하기 (display속성) </h1>
+    <fieldset>
+        <legend>검색할 항목을 선택하세요.</legend>
+        <input type="radio" name="category" value="title" onclick="showDiv(this.value);" id="title"><label for="title">제목</label>&nbsp; &nbsp; 
+        <input type="radio" name="category" value="date" onclick="showDiv(this.value);"  id="date"><label for="date">날짜</label>&nbsp; &nbsp; 
+        <input type="radio" name="category" value="writer" onclick="showDiv(this.value);" id="writer"><label for="writer">작성자</label>&nbsp; &nbsp;
+    </fieldset>
+
+    <hr>
+    <div id="titleBox" class="box">
+        <form method="post" action="">
+            <label> 검색할 제목을 입력하세요 : </label>
+            <br> 
+            <input type="search" name="title" size="50"> &nbsp;
+            <input type="submit" value="검색">
+        </form>
+    </div>
+    <div id="dateBox" class="box">
+        <form method="post" action="">
+            <label> 검색할 날짜를 선택하세요 : </label>
+            <br>
+            <input type="date" name="start">
+            <input type="date" name="end"> &nbsp; 
+            <input type="submit" value="검색">
+        </form>
+    </div>
+    <div id="writerBox" class="box">
+        <form method="post" action="">
+            <label> 검색할 작성자 아이디를 입력하세요 : </label>
+            <br>
+            <input type="search" name="writer" size="25"> &nbsp; 
+            <input type="submit" value="검색">
+        </form>
+    </div>
+    
+
+
+    <script>
+        var showDiv = function(val) {
+            // val 값에 맞게 각각의 display 속성을 바꿔주어야함.
+            var selectd = document.querySelector("#"+val);
+            //console.log(selectd);
+
+            // if문 ver.
+            /*
+            // (사용자가 선택한 버튼이 '제목'이면 또는 '날짜'이면 또는 '작성자'이면)
+            if(selectd.val === "title") {
+                console.log("제목 선택함");
+            }else if (selectd,val === "data") {
+                console.log("날짜 선택함");
+            }else if (selectd.val === "writer") {
+                console.log("작성자 선택함");
+            }
+            */
+
+            // switch-case문 ver.
+            // (사용자가 선택한 버튼이 '제목'이면 또는 '날짜'이면 또는 '작성자'이면)
+            switch(selectd.value) {
+                case "title" : 
+                    document.querySelector("#titleBox").style.display = "block";
+                    document.querySelector("#dateBox").style.display = "none";
+                    document.querySelector("#writerBox").style.display = "none"; 
+                    break;
+                //case "title" : console.log("제목 선택함"); break;
+                case "date" : 
+                    document.querySelector("#titleBox").style.display = "none";
+                    document.querySelector("#dateBox").style.display = "block";
+                    document.querySelector("#writerBox").style.display = "none"; 
+                    break;
+                //case "date" : console.log("날짜 선택함"); break;
+                case "writer" : 
+                    document.querySelector("#titleBox").style.display = "none";
+                    document.querySelector("#dateBox").style.display = "none";
+                    document.querySelector("#writerBox").style.display = "block"; 
+                //case "writer" : console.log("작성자 선택함"); break;
+            }
+        }
+    </script>
+</body>
+</html>

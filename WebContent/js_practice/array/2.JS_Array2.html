@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS 배열 문제2</title>
+</head>
+<body>
+    <h1> 배열 실습 문제 2</h1>
+     문제4. 다음 보기의 문자열을 바탕으로<br> 삭제할 음식과 추가할 음식을 입력받아서 <br> 지우고,추가하는 코드를 작성하여라. (단, 1개씩 입력)<br>
+    <br> 예시) 삭제 : 당근 / 추가 : 타코야끼 <br> 결과-> 피자 치킨 햄버거 떡볶이 타코야끼 <br><br>
+    <fieldset>
+        <legend>보기</legend>
+        <label id="stringla4">피자 치킨 당근 햄버거 떡볶이</label><br>
+    </fieldset><br>
+    <input type="text" id="remove" size="25" placeholder="삭제할 음식이름을 입력하세요">
+    <input type="text" id="add" size="25" placeholder="추가할 음식이름을 입력하세요">
+    <p style="border:1px solid red;" id="print4">이 부분에 정답이 출력 될 수 있도록 하세요</p>
+    <button onclick="printItems();"> 처리 및 출력 </button>
+
+
+    <script>
+        function printItems() {
+            // alert("test");
+
+            // 공백을 기준으로 자르기
+            var foods = document.querySelector("#stringla4").innerHTML.split(" ");
+            var removeFood = document.querySelector("#remove").value;
+            var addFood = document.querySelector("#add").value;
+
+        // >>> 삭제할 음식
+            // > 방법1) indexOf를 사용해 foods라는 배열에서 인덱스를 찾아 삭제
+            //      (배열의 함수 .splice()사용하여 시작할 값(배열의 인덱스)부터 삭제할 인덱스의 갯수)
+            var index = foods.indexOf(removeFood);
+            if(index != -1) foods.splice(index, 1);
+
+            // > 방법2) foods에서 삭제할 음식을 제외한 새로운 배열 생성 후 대입
+            //      (인덱스를 모두 선언해줘야 한다. / j=0; newFoods[j] = foods[i] 등)
+            var newFoods = [];
+            for(var i = 0, j = 0; i < foods.length; i++) {
+                // 삭제할 음식이 아니라면,
+                if(foods[i] != removeFood) {
+                    // 새로운 배열에 넣는다. (push)
+                    //newFoods.push(foods[i]);
+                    newFoods[j] = foods[i];
+                }
+            }
+        // >>> 추가할 음식
+            // foods.push(addFood);
+            newFoods.push(addFood);
+            var pTag = document.querySelector("#print4");
+            // 배열을 문자열로 만드는데(.innerHTML) 공백으로 띄어서 만들기 (join)
+            // pTag.innerHTML = foods.join(" ");
+            pTag.innerHTML = newFoods.join(" ");
+        }
+
+    </script>
+    
+    <br><br><br><br><br><br><br><br>
+</body>
+</html>

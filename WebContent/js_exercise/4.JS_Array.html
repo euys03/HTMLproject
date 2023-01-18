@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배열</title>
+</head>
+<body>
+    <h1>배열</h1>
+    <h3>배열이란?</h3>
+    <p>
+        자바스크립트에서는 자료형 지정이 없기 때문에 모든 자료형을 보관하는 변수의 모음을
+        배열로 처리함(모든 자료형 가능), 자바의 컬렉션(List(Object))과 비슷함.
+    </p>
+    <h3>배열의 선언</h3>
+    <p>
+        배열의 선언시 크기를 정하지 않고 선언할 수도 있고, 크기를 정하고 선언할 수 있다.
+    </p>
+    <h3>Array 객체 함수(메소드)</h3>
+    <p>
+        Array도 하나의 객체이기 때문에 활용할 수 있는 메소드가 있음. <br>
+        1. 배열명.indexOf("값") : 배열에서 요소가 위치한 인덱스 리턴 <br>
+        2. 배열명.concat(배열명2) : 두 개 또는 세 개의 배열을 결합함. <br>
+        3. 배열명.join() : 배열을 결합하고 문자열로 반환 <br>
+        4. 배열명.reverse() : 배열의 순서를 뒤집음 <br>
+        5. 배열명.sort() : 배열을 정렬함. <br>
+        6. 배열명.push('값') : 배열의 맨 뒤에 요소 추가 <br>
+        7. 배열명.pop() : 배열의 맨 뒤에 요소 제거 <br>
+        8. 배열명.shift() : 배열의 첫번째 요소 제거 <br>
+        9. 배열명.unshift() : 배열의 앞에 새로운 요소 추가 <br>
+        10. 배열명.toString : 배열을 문자열로 변환
+    </p>
+
+
+
+    <h4>1) indexOf 예제</h4>
+    <div>
+        <p>다음 중 좋아하는 과일을 작성하시오</p>
+        <p id="p1">바나나 / 딸기 / 복숭아 / 수박</p>
+        <input type="text" name="fruit" id="fruit">
+        <input type="button" value="결과" onclick="fruitIndexOf();">
+    </div>
+
+    <h4>2) concat예제</h4>
+    <div>
+        <p>결과 버튼을 눌러서 console에서 확인하세요.</p>
+        <input type="button" value="결과" onclick="fruitConcat();">
+    </div>
+
+    <h4>3) join 예제</h4>
+    <div>
+        <p>결과 버튼을 눌러서 console에서 확인하세요.</p>
+        <input type="button" value="결과" onclick="fruitJoin();">
+    </div>
+
+    <h4>4) reverse 예제</h4>
+    <div>
+        <p>결과 버튼을 눌러서 console에서 확인하세요.</p>
+        <input type="button" value="결과" onclick="arrReverse();">
+    </div>
+
+    <h4>5) sort 예제</h4>
+    <div>
+        <p>결과 버튼을 눌러서 console에서 확인하세요.</p>
+        <input type="button" value="결과" onclick="arrSort();">
+    </div>
+
+    <h4>6) push/pop 예제</h4>
+    <div>
+        <p>결과 버튼을 눌러서 console에서 확인하세요.</p>
+        <input type="button" value="결과" onclick="pushPop();">
+    </div>
+
+    <h4>7) shift/unshift 예제</h4>
+    <div>
+        <p>결과 버튼을 눌러서 console에서 확인하세요.</p>
+        <input type="button" value="결과" onclick="shiftEx();">
+    </div>
+
+
+
+
+    <script>
+
+        // 1. indexOf 예제 (배열에서 요소가 위치한 인덱스 리턴)
+        function fruitIndexOf() {
+            //alert("test");  // 확인용으로 알림창 띄우기
+            var pTag1 = document.querySelector("#p1");
+                // pTag1에서 innerHTML가져오기 = 'STRING'이 된다
+                // split메소드 사용하여 '/'를 기준으로 자른다. => 배열에 저장
+            var pArrs = pTag1.innerHTML.split(" / ");
+                // 배열 : new Array(4);와 같이 생성자 함수에 넣어 작성!
+            // var Arrs = new Array(4);
+                // 숫자, 문자, boolean, 실수 등 다양한 값 넣을 수 있다.
+            // Arrs[0] = "1";
+            // Arrs[1] = 1;
+            // Arrs[2] = true;
+            // Arrs[3] = 1.1;
+            console.log(pArrs);
+                // 1) 딸기의 인덱스값 구해보기(딸기의 인덱스는 몇 번?)
+            console.log(pArrs.indexOf("딸기"));
+                // 2) 출력대상: id="fruit", 입력한 값의 인덱스 값 구하기
+            var inputVal = document.querySelector("#fruit").value;
+            console.log("입력하신 값은 " + (pArrs.indexOf(inputVal)+1) + "번 째에 있습니다.");
+        }
+
+
+        // 2. concat 예제 (두 개 이상의 배열을 결합)
+        function fruitConcat() {
+            // 배열 선언방법1
+            var fruit = new Array();    // var fruit = []; 과 동일 (JSON)
+            fruit[0] = "귤";
+            fruit[1] = "배";
+            fruit[2] = "딸기";
+            fruit[3] = "체리";
+
+            var fruitsBag = ["사과", "포도", "블루베리"];   // 배열 선언방법2
+            // 두 개의 배열을 합침(.concat)
+            var conResult = fruit.concat(fruitsBag);
+            console.log(conResult);
+        }
+
+
+        // 3. join 예제 (배열을 결합 및 문자열로 반환)
+        function fruitJoin() {
+            var fruitsBag = ["복숭아", "키위", "파인애플", "방울토마토"];
+            // 배열을 문자열로 반환 및 문자열들 사이에 채울 값(" ") 지정(.join)
+            var joinResult = fruitsBag.join(" ");
+            console.log(joinResult);
+            // (응용) arrs를 통해 태그의 종류 결정 가능
+            var arrs = ["<", ">hi</",">"];
+            var result = arrs.join("h1");
+            console.log(result);
+        }
+
+
+        // 4. reverse 예제 (reverse : 배열일 때 사용가능, 배열의 순서를 뒤집음)
+        function arrReverse() {
+            var sampleArrs = [1,2,3,4,5,6,7,8,9];
+            var sArrs = [1,2,3,4,5,6,7,8,9];
+            sArrs.reverse();    // 배열을 역순으로 출력(.reverse)
+            console.log(sampleArrs.join(" ") + "\n역순 : " + sArrs.join(" "));
+        }
+
+
+        // 5. sort 예제 (배열을 정렬)
+        function arrSort() {
+            // 10의 경우 1다음에 정렬되는 문제 -> 보조함수(sortASC, sortDESC)를 만들어 해결
+            var arrSort = [1,2,7,4,5,8,9,3,6,10];
+            //arrSort.sort();
+            console.log(arrSort);
+            arrSort.sort(sortASC);  // 보조함수 사용 (함수도 대입 가능)
+            console.log(arrSort);
+            arrSort.sort(sortDESC); // 보조함수 사용 (함수도 대입 가능)
+            console.log(arrSort);
+        }
+        // 보조함수 : 대소비교하여 오름차순 정렬하도록 함
+        function sortASC(a, b) {
+            return a-b;
+        }
+        // 보조함수 : 대소비교하여 내림차순 정렬하도록 함(역순)
+        function sortDESC(a, b) {
+            return b-a;
+        }
+
+
+        // 6. push/pop 예제 => 뒤에서 가져오기 (배열의 맨 뒤에 요소 추가, 배열의 맨 뒤에 요소 제거)
+        // cf) Stack(스택) - FILO(First In Last Out, 후입선출) / push:쌓임, pop:마지막값 꺼내기
+        function pushPop() {
+            var compaines = ["네이버", "카카오", "라인", "쿠팡", "배민"];
+            console.log(compaines);
+            // '당근마켓' push
+            compaines.push("당근마켓");
+            compaines.push("토스");
+            console.log(compaines);
+            // pop : 마지막 입력값 out
+            console.log(compaines.pop());
+            // '토스' push 후 출력하면 '토스' 출력
+            console.log(compaines);
+            // pop : 마지막 입력값 out x 2
+            console.log(compaines.pop());
+            console.log(compaines.pop());
+        }
+
+
+        // 7. shift/unshift 예제 => 앞에서 가져오기 (배열의 첫번째 요소 제거, 배열의 앞에 새로운 요소 추가)
+        function shiftEx() {
+            var globals = ["Meta", "Amazon", "Apple", "Netflix", "Google"];
+            console.log(globals);
+            globals.unshift("Oracle");
+            globals.unshift("Tesla");
+            console.log(globals);
+            console.log(globals.shift());   // 'Tesla' 제거
+            console.log(globals.shift());   // 'Oracle' 제거
+            console.log(globals.shift());   // 'Meta' 제거
+            console.log(globals);
+        }
+
+    </script>
+    <br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>
