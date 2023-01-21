@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS 이벤트</title>
+
+    <!-- 외부 스크립트 사용 -->
+    <!-- HTML 노드들이 모두 실행된 후 script 노드들이 실행되어야하며, <script>태그를 가장 위에 배치할 경우
+        html노드보다 script노드가 먼저 실행되어 html의 해당 요소를 찾지 못하는 상황이 발생할 수 있다.
+        - defer : 모든 html 요소가 모두 동작한 후 동작하도록 하는 속성 -->
+    <!-- 
+        방법1) <script> 태그 내에 [defer] 작성.
+                - defer : 모든 요소가 노드된 후에 동작시키겠다는 의미
+        방법2) 외부스크립트를 가장 아래에 배치 
+    -->
+    <!-- <script src="" defer></script> -->
+
+</head>
+
+
+<body>
+
+    <!-- 내부 스크립트 사용 -->
+    <!-- 이벤트를 사용하면 스크립트 태그를 상단에 배치하고, defer를 사용하지 않아도 정상적으로 요소를 찾아
+        동작하도록 할 수 있다.  -->
+    <!-- 
+        방법1) onload 속성 : window객체에 있는 onload속성에 익명함수 function() 를 연결
+        방법2) DOMContentLoaded 사용 : DOM을 사용 (표준 이벤트 모델 사용)
+        최종방법) 요소를 선택하는 코드들을 DOM 내로 이동한다. (function()은 상관없음)
+    -->
+
+<!-- 동작 X
+    <script>
+        // 'div-1'이라는 id를 가진 divTag요소 선택
+        var divTag = document.querySelector("#div-1");
+        div.innerHTML = "실행되었습니다.";
+    </script>
+-->
+
+    <script>
+
+        // 2. 인라인 이벤트 동작 ( button onclick = "" )
+        function inlineEvent() {
+            alert("인라인 이벤트 동작");
+        }
+
+        
+        // 1) defer 대신 사용가능 방법1
+            // 방법1) window객체에 있는 onload속성 사용! (고전 이벤트 모델(.))
+            // - window객체에 있는 onload속성을 사용하여 익명함수 연결 (html요소 모두 동작 후 동작하라는 명령 가능)
+        // window.onload = function() {
+        //     var divTag = document.querySelector("#div-1");
+        //     divTag.innerHTML = "실행되었습니다.";
+        // }
+
+        // 2) defer 대신 사용가능 방법2
+            // 방법2) DOMContentLoaded 사용! (표준 이벤트 모델(addEventListener))
+        document.addEventListener("DOMContentLoaded", function() {
+            var divTag = document.querySelector("#div-1");
+            divTag.innerHTML = "실행되었습니다.";
+
+            // 방법3) 최종방법 - 요소(id속성)를 선택하는 코드들 DOM 내로 이동
+
+            // 1. 고전 이벤트 동작 ( .onclick )
+            //  - 점(.)을 사용하여 속성(onclick)과 연결해준다.
+            var btn1 = document.querySelector("#btn1");
+            btn1.onclick = function inlineEvent() { alert("고전 이벤트 동작");}
+            //btn1.onclick = null;
+
+            // 3. 표준 이벤트 동작 ( .addEventListener("click", 익명함수) )
+            var sBtn1 = document.querySelector("#sBtn1");
+            // addEventListener 사용하여 이벤트 지정(click : 클릭시 동작함)
+            sBtn1.addEventListener("click", function() {
+                alert("표준 이벤트 동작");
+            })
+
+        })
+    
+    </script>
+
+
+
+
+    <h1>이벤트</h1>
+    <p>
+        ▶ 이벤트 : 웹 페이지에서 어떠한 행위(사용자의 행동)가 발생한 것을 이벤트라 함 <br>
+        ▶ 이벤트 활용 : 이벤트 속성과 이벤트핸들러(함수)를 연동하여 이벤트 발생 시 특정 기능을 하도록 함.<br>
+        ▷ 이벤트 참조 : https://developer.mozilla.org/ko/docs/Web/Events
+    </p>
+    <br>
+    <h3>이벤트 설정방법</h3>
+    <p>
+        1. 고전 이벤트 모델<br>
+        2. 인라인 이벤트 모델<br>
+        3. 표준 이벤트 모델<br>
+    </p>
+    <h4>1) 고전 이벤트 모델</h4>
+    <p>
+        1. 요소객체가 가지고 있는 이벤트 속성에 이벤트핸들러를 연결하는 방법<br>
+        2. 이벤트를 제거할 때는 속성값에 null값을 넣어주면 됨<br>
+        3. 요소(#id명)를 선택한 후 점(.)을 사용하여 이벤트속성(onclick)을 연결하는 방식<br>
+    </p>
+    <button id="btn1">고전 이벤트 모델</button>
+    <div id="div-1"></div>
+
+    <h4>2) 인라인 이벤트 모델</h4>
+    <p>
+        1. 요소 내부에 이벤트를 작성하는 방법<br>
+        2. script태그에 있는 함수를 호출하는 방식<br>
+        3. button 태그와 'onclick'과 같은 이벤트속성을 사용하며 버튼 클릭 시 출력하는 방식<br>
+    </p>
+    <!-- onclick 과 같은 것이 '이벤트 속성' 이며 버튼 클릭시 출력하는 것이 인라인 모델이었다. -->
+    <button onclick="inlineEvent();">인라인 이벤트 모델</button>
+    <button onclick="null">인라인 이벤트 제거</button>
+
+    <h4>3) 표준 이벤트 모델</h4>
+    <p>
+        1. w3c에서 공식적으로 지정한 이벤트 모델<br>
+        2. 한번에 여러가지 이벤트핸들러 설정 가능<br>
+        3. 요소를 선택 및 점(.)사용은 고전이벤트모델과 동일하지만 addEventListener를 사용하는 방식<br>
+        => 요소명(#id명).addEventListener("이벤트명(ex.click)", 익명함수( function() { }); ) <br>
+        => 이벤트명 작성 시 'on'은 제외하고 이벤트명만 작성 (ex. onclick(x), click(o))
+    </p>
+    <button id="sBtn1">표준 이벤트 모델</button>
+
+    <br><br><br><br><br><br><br><br><br><br>
+
+
+
+</body>
+</html>
