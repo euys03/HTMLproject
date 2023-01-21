@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>트랜지션 스타일</title>
+
+<!-- 트랜지션을 통해 값이 적용되는 시간을 조절할 수 있다. (애니메이션 효과를 기대할 수 있다) -->
+    <style>
+        div {
+            box-sizing: border-box;
+            width: 100px;
+            height: 100px;
+        }
+
+/* 1. 트랜지션 진행 시간 지정하기 */
+        .tran1{
+            background-color: red;
+            border: 1px dashed red;
+            /* 파란색으로 변경되는 시간을 5초로 설정 */
+            transition-duration: 5s;
+        }
+        /* 마우스를 가져다댔을 때(hover) 파란색으로 변경 
+            -> 변하는 대상(tran1클래스) 스타일에 transition-duration 적용*/
+        .tran1:hover {
+            background-color: blue;
+            border: 2px dashed blue;
+        }
+
+/* 2. 트랜지션 진행별 시간 설정하기 */
+        .tran2 {
+            background-color: red;
+            border: 1px solid red;
+            /* 배경색, 2차원변형, 너비, 높이 각각 시간차 조절이 가능 */
+            /* 배경색 1초, transform 10초동안 회전, 너비 3초, 높이 6초동안 변경 */
+            transition-property: background-color, transform, width, height;
+            transition-duration: 1s, 10s, 3s, 6s;
+        }
+        /* 마우스를 가져다댔을 때(hover) gold색으로 변하며 회전(rotate)한다. 
+            -> 변하는 대상(tran2클래스) 스타일에 transition-duration 적용*/
+        .tran2:hover {
+            width: 200px;
+            height: 200px;
+            background-color: gold;
+            transform: rotateZ(180deg); /*180도*/
+        }
+
+/* 3. 트랜지션 진행별 속도 지정하기 */
+        .tran3 {
+            background-color: red;
+            border: 1px solid red;
+            transition-duration: 5s;
+            transition-timing-function: ease-in;
+            /* 
+              < transition-timing-fuction 속성 >
+                linear : (기본값) 일정한 속도로 동작
+                ease-in : 천천히->빠르게
+                ease-out : 빠르게->천천히
+                ease-in-out : 천천히들어갔다->천천히나오기 */
+        }
+        .tran3:hover {
+            background-color: black;
+            border: 1px solid black;
+        }
+
+/* 4. 트랜지션 시간 지연하기 */
+    /* 마우스를 올렸을 때 시작하는 시간을 조절 (transition-delay) */
+        .tran4 {
+            background-color: red;
+            border: 1px solid red;
+            transition-duration: 4s;
+            transition-delay: 2s;   /*2초 뒤에 시작*/
+        }
+        .tran4:hover {
+            background-color: gold;
+            border: 1px solid gold;
+            transform: rotateZ(180deg);
+        }
+        
+    </style>
+
+</head>
+<body>
+    <h1>트랜지션</h1>
+    <p>시간에 따라 웹 요소의 스타일 속성이 조금씩 바뀌는 것을 의미</p>
+    <h3>1. 트랜지션 진행 시간 지정하기</h3>
+    <div class="tran1"></div>
+    <hr>
+
+    <h3>2. 트랜지션 진행별 시간 설정하기</h3>
+    <div class="tran2"></div>
+    <hr>
+
+    <h3>3. 트랜지션 진행별 속도 지정하기</h3>
+    <p>transition-timing-function : linear | ease | ease-in | ease-out | ease-in-out | cublic-bezier(n,n,n,n)</p>
+    <div class="tran3"></div>
+    <hr>
+
+    <h3>4. 트랜지션 시간 지연하기</h3>
+    <div class="tran4"></div>    
+    <br><br><br><br><br>
+    
+</body>
+</html>

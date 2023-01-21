@@ -42,7 +42,15 @@ li {
 /* 주문하기/취소하기 버튼 간격 및 위치 조절 */
 #button-area {
     margin-top: 20px;
-    text-align: center;
+    /* 이전 방법 : 주문하기/취소하기 버튼 가운데정렬 */
+    --text-align: center;
+    /* 이후 방법 : "display: flex" 사용 => 좌측정렬 후 기본값을 조정 */
+    /* (기본값) flex-direction: row, justify-content: flex-start, align-items: stretch */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;  /*가운데정렬 (간격조정:space-around/space-between/space-evenly)*/
+    align-items: stretch;
+
 }
 
 

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2차원 변형</title>
+
+    <style>
+    /* css너비 조절 */
+        img {
+            width: 250px;
+        /* (추가)트랜지션 적용해보기 */
+            transition-duration: 5s;
+        }
+
+    /* 
+        2차원 변형 방법 : 선택자에 '옵션을 추가'
+        1) hover- 마우스를 올렸을 때 동작
+        2) active- 클릭 시 동작
+    */
+
+    /* 1. 이동 - translate */
+        /* X : 가로 */
+        .trans1:hover {
+            transform: translateX(50px);
+        }
+        /* Y : 세로 */
+        .trans2:hover {
+            transform: translateY(-50px);
+        }
+        /* X,Y모두 : 대각선 */
+        .trans3:hover {
+            transform: translate(50px, 50px);
+        }
+
+    /* 2. 확대축소 - scale */
+        /* 클릭 시 확대 (X : 가로축) */
+        .trans4:active {
+            transform: scaleX(2);
+        }
+        /* 클릭 시 확대 (Y : 세로축) */
+        .trans5:active {
+            transform: scaleY(2);
+        }
+        /* 클릭 시 전체 확대 */
+        .trans6:active {
+            padding-left: 50PX;
+            transform: scale(1.5);
+        }
+
+    /* 3. 회전 : rotate */
+        /* deg 각도만큼만 회전 */
+        .trans7:active {
+            transform: rotate(20deg);
+        }
+        
+    /* 4. 뒤틀기 : skew */
+        /* deg 각도만큼 뒤틀기 (X : 가로축) */
+        .trans8:hover {
+            transform: skewX(30deg);
+        }
+        /* deg 각도만큼 뒤틀기 (Y : 세로축) */
+        .trans9:active {
+            transform: skewY(30deg);
+        }
+        .trans10:active {
+            transform: skew(10deg, 10deg);
+        }
+    </style>
+
+</head>
+<body>
+    <h1>2차원 변형</h1>
+    <h3>좌우로 움직이기</h3>
+    <img src="./2d_img/flower1.PNG" class="trans1">
+    <h3>위아래로 움직이기</h3>
+    <img src="./2d_img/flower2.PNG" class="trans2">
+    <h3>대각선으로 움직이기</h3>
+    <img src="./2d_img/flower3.PNG" class="trans3">
+    <h3>가로로 확대 축소</h3>
+    <img src="./2d_img/flower4.PNG" class="trans4">
+    <h3>세로로 확대 축소</h3>
+    <img src="./2d_img/flower5.PNG" class="trans5">
+    <h3>전체 확대 축소</h3>
+    <img src="./2d_img/river1.PNG" class="trans6">
+    <h3>지정한 각도만큼 회전</h3>
+    <img src="./2d_img/river2.PNG" class="trans7">
+    <h3>지정한 각도만큼 가로로 뒤틀기</h3>
+    <img src="./2d_img/city1.PNG" class="trans8">
+    <h3>지정한 각도만큼 세로로 뒤틀기</h3>
+    <img src="./2d_img/tower1.PNG" class="trans9">
+    <h3>지정한 각도만큼 전체 뒤틀기</h3>
+    <img src="./2d_img/forest1.PNG" class="trans10">
+    
+    <br><br><br><br><br>
+</body>
+</html>

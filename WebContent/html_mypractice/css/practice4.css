@@ -25,3 +25,25 @@ li {
 input[type=text], input[type=email], input[type=tel] {
     width: 300px;
 }
+
+/* 버튼 (주문하기, 취소하기) 스타일 */
+form > div {
+    /* 이전방법 : 주문하기/취소하기 버튼 가운데정렬 */
+    --text-align: center;
+    margin-top: 20px;
+    /* 이후방법 : "display: flex" 사용 => 좌측정렬 후 기본값을 조정 */
+    /* (기본값) flex-direction: row, justify-content: flex-start, align-items: stretch */
+    display: flex;                  /*좌측정렬*/
+    flex-direction: row;            /*가로기준*/
+    justify-content: center;   /*가운데정렬 (간격조정:space-around/space-between/space-evenly)*/
+    align-items: stretch;
+}
+
+form > div > input {
+    width: 150px;
+    height: 40px;
+    text-align: center;
+    border: 1px solid #ccc;
+    background-color: #fafafa;
+    box-shadow: 1px 1px 1px #ccc;
+}

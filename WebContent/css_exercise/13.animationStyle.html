@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>애니메이션 스타일</title>
+
+<!-- 
+    < 애니메이션 특징 >
+        - @keyframes 적용 + 애니메이션 이름 지정
+        - 위치를 지정(%) 후 스타일 적용
+        - 세분화할수록 자연스러운 애니메이션 구현 가능
+        - 애니메이션 적용할 요소에 지정한 애니메이션 이름 적기.
+ -->
+    <style>
+        /* 도형 기본 속성 크기 */
+        div {
+            width: 100px;
+            height: 100px;
+        }
+
+
+        .div-class {
+            background-color: salmon;
+            /* @keyframes(transAni)에서 지정한 애니메이션 적용 */
+            animation-name: transAni;
+            animation-duration: 5s;
+        }
+        /* 애니메이션 이름 설정 및 스타일 적용 위치 지정(%) */
+        @keyframes transAni {
+            0% {
+                background-color: yellowgreen;
+            }
+            100% {
+                background-color: orange;
+                border-radius: 50%;
+                transform: rotateZ(360deg);
+            }
+        }
+
+
+        .div2-class {
+            margin: 100px;                  /* margin 사용하여 위치 조정 */
+            background-color: gold;
+            animation-name: transRainbow;
+            animation-duration: 10s;            /* 10초 동안 변형 실행 */
+            animation-iteration-count: infinite;    /* 한번이 아닌 무한 실행 */
+        }
+        @keyframes transRainbow {
+            0% {
+                background-color: red;
+            }
+            15% {
+                background-color: orange;
+            }
+            30% {
+                background-color: yellow;
+            }
+            45% {
+                background-color: green;
+            }
+            60% {
+                background-color: blue;
+            }
+            75% {
+                background-color:  navy;
+            }
+            100% {
+                background-color: indigo;
+            }
+        }
+
+
+        img {
+            width: 300px;
+            margin: 50px;
+        }
+        img:hover {
+            animation-name: transAni3;
+            animation-duration: 10s;
+            animation-iteration-count: infinite;
+            /* 
+                animation-direction : 되돌아가는 속성 (역방향)
+                 - normal (기본값)
+                 - reverse (뒤에서부터 시작)
+                 - alternate (정상작동 후 다시 되돌아옴 : 0% ~ 100% 후 100% ~ 0%)
+                 - alternate-reverse (100% ~ 0% 후 0% ~ 100%)
+            */
+            animation-direction: alternate;
+        }
+        @keyframes transAni3 {
+            0% {
+                border: 3px dashed black;
+            }
+            100% {
+                border: 3px solid black;
+                border-radius: 50%;
+                transform: rotateZ(360deg);
+            }
+
+        }
+    </style>
+
+</head>
+<body>
+    <h1>애니메이션</h1>
+    <div class="div-class"></div><br>
+    <div class="div2-class"></div>
+    <br><br><br>
+    <img src="./2d_img/forest1.PNG" alt="숲">
+    <br><br><br><br><br><br><br><br><br><br>
+    
+</body>
+</html>
