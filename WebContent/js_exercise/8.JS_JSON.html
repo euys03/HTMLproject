@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON</title>
+    <style>
+        table {
+            text-align: center;
+            width: 650px;
+            border: 1px solid black;
+        }
+        th, tr, td {
+            border: 1px double black;
+        }
+    </style>
+</head>
+<body>
+    <h1>JSON</h1>
+    <h3>JSON(javascript Object Notation) : 자바스크립트 객체 표기법</h3>
+    <h4>자바스크립트 객체 = 모든 자료형</h4>
+    <pre>
+        JSON을 사용하면 모든 <strong>데이터형을 서버와 주고받을 수 있다. (사용목적)</strong><br>
+        숫자, 문자열, boolen, 배열, 객체, null (종류)<br><br>
+        ▶ 자바스크립트 표기법<br>
+        중괄호'{'으로 시작하여 '}'로 끝나며 그 속에 데이터를 표기하고 'key : value(값)' 쌍으로 구성된다.<br>
+        {
+            "name" : "이순신",
+            "age" : 27,
+            "birth" : "1990-01-01",
+            "gender" : "남",
+            "marry" : true,
+            "address" : "서울특별시 중구 인사동",
+            "family" : {  
+                        "father" : "아버지",
+                        "mother" : "어머니",
+                        "brother" : "동생"
+                    }
+        }
+
+        var student = new Object(); => <strong>{}</strong>
+        var arrs = new Array(); => <strong>[]</strong>
+        var num = new Number(3); => <strong>3</strong>
+        과 같이 간단히 표기하는 방법이 <strong>"JSON"</strong>이다.
+
+    </pre>
+
+    <table>
+        <tr>
+            <th>구분값</th>
+            <th>Javascript Object</th>
+            <th>Javascript Object Notation(JSON)</th>
+        </tr>
+        <tr>
+            <td>Boolean</td>
+            <td>var n = new Boolean(true);</td>
+            <td>var n = true;</td>
+        </tr>
+        <tr>
+            <td>Number</td>
+            <td>var n = new Number(3);</td>
+            <td>var n = 3;</td>
+        </tr>
+        <tr>
+            <td>String</td>
+            <td>var s = new String("hello");</td>
+            <td>var s = "hello";</td>
+        </tr>
+        <tr>
+            <td>Array</td>
+            <td>var arrs = new Array();</td>
+            <td>var arrs = [];</td>
+        </tr>
+        <tr>
+            <td>Object</td>
+            <td>var obj = new Object();</td>
+            <td>var obj = {};</td>
+        </tr>
+    </table>
+    <br><br><hr><br>
+
+    <h1>대표적인 데이터를 주고받는 형태 Top3</h1>
+    <h2>XML, CSV, JSON</h2>
+    <b> 1. XML 방식</b> : notice 작성이 가능 ( notices태그를 통해 notice 전달을 알리고, notice 태그에 정보들을 담아 전달 )<br>
+    - 단점 : 용량이 크며, 꺽쇠를 사용해야하는 불편함 존재
+    <pre>
+<notices>
+    <notice id="1" title="All the json" />
+    <notice id="2" title="json class" />
+    <notice id="3" title="more about json" />
+</notices>
+    </pre> <br>
+
+    <b> 2. CSV 방식</b> : 데이터(정보)를 콤마(,)로 구분하여 전달 ( id="1" title="All the json" 등의 정보를 콤마(,)로 구분)<br>
+    - 단점 : 작성에 용이하지만, 데이터를 구분하기 어렵다는 불편함 존재<br>
+    - (글자가 깨지거나, 띄어쓰기로 인한 구분 오류로 정확한 데이터 전달이 불가능할 가능성<br>
+    <p>
+        1, All the json<br>
+        2, json class<br>
+        3, more about json<br>
+    </p>
+    <br><br>
+
+    <b> 3. JSON방식</b> : XML과 CSV의 장점을 합쳐놓은 방식 ( 구조 : [{:}] -> 대괄호/중괄호/콜론으로 연결 )<br>
+    - 여러개의 데이터를 보낼 경우 : 배열로 전달 []<br>
+    - 전달할 데이터 : 중괄호 {키:값}<br>
+    - 데이터 구분 : 콤마사용 [ {}, {}, {} ]<br>
+    <pre>
+[
+    { "id" : 1, "title" : "All that json" },
+    { "id" : 2, "title" : "json class" },
+    { "id" : 3, "title" : "more about json" },
+]
+    </pre>
+
+</body>
+</html>

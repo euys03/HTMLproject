@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS ES6</title>
+</head>
+<body>
+    <h1>Javascript ES6</h1>
+    <p><b>변수의 호이스팅</b> : 선언되지 않은 변수를 사용하더라도 자동으로 선언하여 사용하는 현상<br>
+    <b>ex)</b> var number; 가 console.log(number);보다 아래있더라도 자동으로 선언하여 사용</p>
+
+
+    <script>
+        //exLet();
+
+        //letForLoop();
+
+        // const number = 1;  // const : 보통 변하지 않는 값을 사용 (let과 구별)
+        // console.log(number);
+        // number = 2; // number 값 재할당 시도 -> 'Assignment to constant variable.'(변하지않는 값에 재할당한다는 오류)
+        // console.log(number);
+
+
+        function varHoisting() {
+            console.log(number);    // 호이스팅되어 undefined
+            var number;
+            number = 1;    
+        }
+
+        function exForLoop() {
+            var i;  // var i라는 값이 호이스팅되어 실제로 선언되어있지않지만 전역변수처럼 사용되어버린다.
+                    // 호이스팅을 막는 방법 (let 사용)
+            for(var i=1; i<5; i++) {
+                console.log(i);
+            }
+            console.log(i); // 호이스팅되어 i++ 한 값까지 출력된다.
+        }
+        
+/*
+    호이스팅을 막는 방법! => let 사용
+    let : let을 사용하여 전역 변수를 보호할 수 있다. (var을 사용하면 전역변수가 덮어씌워지지만.)
+*/
+        function exLet() {
+            /*
+            console.log(number);  // Cannot access 'number' before initialization (초기화되어있지 않는 값 사용불가)
+            let number;    // 호이스팅이 되긴하지만 초기화하지 않은 값에 대해 오류메시지를 출력하게 됨.
+            */
+           let number;  // 선언 후 값을 넣지 않아 'undefined' 오류 발생
+           number = 2;  // (해결방법) let 사용시에는 항상 선언된 변수(let number)에 값(2)을 넣어서 콘솔출력한다.
+           console.log(number); // 
+        }
+        
+        function letForLoop() {
+            let i = 5;  // 'let i = 5'를 주석처리 할 경우 '선언되지 않은 변수는 사용할 수 없다'는 원칙대로 실행이 되지 않음
+            for(let i=1; i<5; i++) {    // 'var'를 사용하면 호이스팅되어 전역변수로 사용되며 정상적으로 출력되어왔지만
+                                        // 'let'을 사용함으로서 호이스팅되지않아 for문에서 사용 후 사라지고 
+                // 선언되지 않은 값을 사용하려니 'i is not defined' 오류 발생
+                console.log(i);
+            }
+            console.log(i);
+        }
+
+/*
+    const : 한 번 선언된 변수가 덮어씌워질 수 없도록 강제 (java의 final과 유사) ex) 함수(function)
+        - 변하지 않는 값에 재할당 불가능
+*/
+        function exConst() {
+            const number = 1;
+            console.log(number);
+            number = 2;     // 변하지 않는 수(함수)로 재할당하려고하여 나는 오류(재할당 시 나는 오류)
+            console.log(number);
+        }
+        // const사용처
+        // var로 선언하면 호이스팅되어 자동으로 선언이 되어있는 것으로 인식하지만 const로 변하지 않는 값으로 변환
+        const insertMember = function() {
+            console.log("const로 선언한 변수에 초기화");
+        }
+
+
+/*
+    Arrow Function (화살표 함수) : 한 줄에 함수를 선언할 수 있다. (가독성 향상)
+*/
+        // > 화살표 함수
+        // function을 괄호 뒤로 옮기고, function을 지운 후 화살표로 변경한다.
+        const printMember = () => {
+            console.log("화살표 함수로 변경해봄");
+        }
+        // (원래) 익명함수를 사용하여 사용
+        let sayHi1 = function() { 
+            return "안녕하세요?"; 
+        }
+        // (변형) 화살표함수 사용
+        let sayHi2 = () => { 
+            return "안녕하세요?"; 
+        }
+        // (결과) 한 줄로 작성 시 화살표함수 리턴(return) 생략 가능
+        //let sayHi3 = () => { return "안녕하세요?"; } // 한 줄로 작성 시
+        let sayHi3 = () => "안녕하세요?";
+
+    // EX) 친구에게 인사하는 함수 만들기        
+        // 소괄호안에 변수명(friend) 작성 시 해당 변수가 매개변수가 된다
+        // 1) const로 선언후
+        const sayHelloFriend = (friend) => {
+            document.write(friend + "안녕!" + "<br>");
+        }
+        // 2) 출력
+        sayHelloFriend("친구야");
+
+
+    // EX) 아래 코드를 Arrow function(화살표 함수)으로 바꾸기
+        let calculator = function(num1, num2) {
+            return num1 + num2;
+        }
+        // 바꾸기 방법1. 화살표 함수 사용
+        let calculator1 = (num1, num2) => {
+            return num1 + num2;
+        };
+        // 바꾸기 방법2. 한 줄로 작성
+        let calculator2 = (num1, num2) => num1 + num2;
+        document.write("두 수의 합 : " + calculator(5, 10) + "<br>")        
+
+        </script>
+
+
+</body>
+</html>
