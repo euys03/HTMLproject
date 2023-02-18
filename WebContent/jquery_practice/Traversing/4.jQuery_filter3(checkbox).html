@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery filter() 메소드3 (checkbox)</title>
+    <!-- jQuery 사용을 위한 다운받은 파일 경로 -->
+    <!-- DDL방식 "../js/jquery-3.6.3.min.js" -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+</head>
+<body>
+    <input type="checkbox" name="check" value="1" /> 1번
+    <input type="checkbox" name="check" value="2" /> 2번
+    <input type="checkbox" name="check" value="3" /> 3번
+    <input type="checkbox" name="check" value="4" /> 4번
+    <br />
+    <input type="button" value="체크 버튼 확인" onclick="checkBtn()" />
+    <br><br>
+
+    <script>
+        var checkBtn = () => {
+            // 방법4. Js의 DOM 프로그래밍 사용
+            var checkTags = document.querySelectorAll("[name=check]:checked");
+            checkTags.forEach((el) => {
+                //console.log("el :" + el + ", index : " + index);
+                console.log(el.value + "번");
+            });
+
+            // 방법1.
+            // for(let i=0; i<checkedBoxes.length; i++) {
+            //     console.log(checkedBoxes[i].value + "번");  // .value = 클릭한 값(1,2,3,4)을 받음
+            // }
+
+            // 방법2. each() 메소드 사용
+            //var checkedBoxes = $("[name=check]").filter(":checked");
+            // checkedBoxes.each(function(index, item) {
+            //     console.log(item.value + "번");
+            // })
+
+            // 방법3. $.each 사용
+            //var checkedBoxes = $("[name=check]").filter(":checked");
+            //$.each(checkedBoxes, function(index, item) {
+            //    console.log(item.value + "번");
+            //})
+
+        }
+    </script>
+</body>
+</html>

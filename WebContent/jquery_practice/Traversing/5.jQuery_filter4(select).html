@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery filter() 메소드4 (selectBtn)</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+</head>
+<body>
+    <select>
+        <option value="1" selected="selected">1번</option>
+        <option value="2">2번 </option>
+        <option value="3">3번 </option>
+    </select>
+    <br />
+    <input type="button" value="Select 버튼 확인" onclick="selectBtn()" />
+    <br><br>
+
+
+    <script>
+        const selectBtn = () => {
+            //alert("test");
+
+            // jQuery 객체 selectedTag
+            var selectedTag = $("option").filter(":selected");
+                // 방법1) .val()과 .value
+            console.log(selectedTag.val() + "번");  // value 메소드를 통해 값(value)를 가져옴
+            // selectedTag가 객체이기 때문에 '.value'를 사용할 수 없음. => .val()사용
+                // 방법2) 인덱스로 접근(=HTML요소) 후 속성(.value)으로 접근
+            //console.log(selectedTag[0].value + "번");
+                // 방법3) .html()
+            //console.log(selectedTag.html());
+                // 방법4) .innerHTML
+            console.log(selectedTag[0].innerHTML);
+        }
+    </script>
+</body>
+</html>

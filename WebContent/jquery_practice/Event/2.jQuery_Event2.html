@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>jQuery 이벤트 실습2</title>
+        <!-- jQuery 선언 -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    </head>
+    <body>
+
+        <script>
+            $(function() {
+                // tr 클릭했을 때 동작하려면?
+                // td 클릭했을 때 동작하려면?
+                $("tr").on("click", function() {
+                    // tr 클릭되었을 때 tr 자기 자신이 나오도록 this 사용
+                    // 선택한 tr의 td값들(tr의 자손들) => .children()으로 가져오기 가능
+                    console.log($(this).children());
+
+                    // 방법1. 선택된 각각의 행을 가져옴 => 행or열이 추가될 경우 번거로움
+                    //$("#s1").text$($(this).children.eq(0).text());
+                    //$("#s2").text$($(this).children.eq(1).text());
+                    //$("#s3").text$($(this).children.eq(2).text());
+                    //$("#s4").text$($(this).children.eq(3).text());
+
+                    // 방법2. for문 돌려 사용
+                    var tdTags = $(this).children();
+                    tdTags.each(function(index, item) {
+                        // 1-1.
+                        //$("#s" + (index+1)).text($(item).text());
+                        // 2-2.
+                        $("span").eq(index).text($(item).text());
+                    });
+                    // 색변경 - 자기자신 this / 자기자신 외의 tr
+                    $("tr").css("background-color", "white"); // 자기자신 외(다른 tr태그들)
+                    $(this).css("background-color", "red"); // 자기자신(클릭된 tr태그)
+
+                });
+            })
+        </script>
+
+        <table border="1">
+            <tr><th>번호</th><th>제목</th><th>조회수</th><th>작성일자</th></tr>
+            <tr><td>3</td><td>3번제목</td><td>0</td><td>11-07-13</td></tr>
+            <tr><td>2</td><td>2번제목</td><td>0</td><td>11-07-12</td></tr>
+            <tr><td>1</td><td>1번제목</td><td>0</td><td>11-07-11</td></tr>
+        </table>
+        선택된 행 : <span id="s1"></span> / <span id="s2"></span> / <span id="s3"></span>
+        / <span id="s4"></span>
+    </body>
+</html>

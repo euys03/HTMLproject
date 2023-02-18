@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>jQuery 이벤트 실습</title>
+            <!-- jQuery 선언 -->
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+        </head>
+    <body>
+
+        <script>
+            $(function() {
+                $("select").on("change", function() {
+                    // 변경이 될 때 select에 있는 option태그를 선택해서 그 사이의 값을 가져와야 한다.
+                    // 어떻게? option태그는 어떻게 선택? -> console로 출력해서 확인해보자
+                    //console.log($("option")); ->  //console.log($(this));
+
+                    // 그렇다면 선택한 것은 어떻게 가져오는가? -> checked 사용해보자
+                    //console.log($("select option:checked"));
+
+                    // 그 출력하고자하는 사이값은? -> html 또는 text 사용해보자
+                    //console.log($("select option:checked").html());
+                    //console.log($("select option:checked").text());
+
+                    // 체크된 것(:checked) 중 하나의 사이값(.text) 가져온다
+                    var checkValue = $("select option:checked").text();
+                    $("#selNum").text(checkValue);
+                });
+            })
+        </script>
+
+        <select name="number" id="">
+            <option value="">== 선택 ==</option>
+            <option value="1">1번</option>
+            <option value="2">2번</option>
+            <option value="3">3번</option>
+            <option value="4">4번</option>
+        </select>
+        <span id="selNum"></span>
+
+    </body>
+</html>

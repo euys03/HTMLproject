@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery 조작 메소드</title>
+    <!-- jQuery 선언문 -->
+    <script src="../../js/jquery-3.6.3.min.js"></script>
+</head>
+<body>
+    <script>
+        const addFile = () => {
+            //alert("test");
+            // 추가 - after (input태그 활용)
+            // .after()을 사용하여 같은 레벨로 추가되는 것을 알 수 있다. (Siblings메소드)
+            $("input").last().after("<input type='file'>");
+        }
+        const delFile = function() {
+            //alert("test");
+            // 삭제 - remove
+            //$("input").last().remove();
+            // (문제점) 삭제버튼 또한 input태그라 본인도 삭제되어버림.
+            // (해결방법)'삭제'버튼이 1개 '초과'일 때만 삭제가능하도록 if문을 적어 조건을 걸어준다.
+            var inputLength = $("[type=file]").length;
+            if(inputLength > 1) {
+                $("input").last().remove();
+            }
+        }
+    </script>
+
+
+    <div>
+        <input type="file">
+        <input id="add" type="button" value="추가" onclick="addFile();">
+        <input type="button" value="삭제" onclick="delFile();">
+    </div>
+    <br>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery filter() 메소드2</title>
+    <!-- jQuery 사용을 위한 다운받은 파일 경로 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <style>
+        table {
+        border : 1px solid black;
+        border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr><th>구분</th><th>A</th><th>B</th></tr>
+        <tr><td>가</td><td>10</td><td>10</td></tr>
+        <tr><td>나</td><td>20</td><td>20</td></tr>
+        <tr><td>계</td><td>30</td><td>30</td></tr>
+    </table>
+    <input type="button" value="[가]색 변경" onclick="click1();" />
+    <input type="button" value="[나]색 변경" onclick="click2();" />
+    <input type="button" value="[A]색 변경" onclick="click3();" />
+    <input type="button" value="[B]색 변경" onclick="click4();" />
+    
+
+    <script>
+        // clear 함수 선언
+        function clear() {
+        //const clear = () => {
+            $("table td").css("color", "black");
+        }
+
+
+        // 화살표 함수로 변경해보기
+        var click1 = () => {
+            //alert("test");
+            //console.log($("tr:eq(0)").children("td").not(":first-child"));
+            clear();
+            // 한줄에 작성
+            $("tr:eq(1)").children("td").not(":first-child").css("color", "red");
+            //console.log($("td:nth-child(2)"));    // 한꺼번에 처리 불가
+            //$("td:eq(1)").css("color", "red");      // 각각 처리
+            //$("td:eq(2)").css("color", "red");      // 각각 처리
+        }
+        function click2() {
+            //alert("click2");
+            clear();
+            //$("tr:eq(2)").children("td").not(":first-child").css("color", "red");
+            $("td:eq(4)").css("color", "red");      // 각각 처리
+            $("td:eq(5)").css("color", "red");      // 각각 처리
+        }
+        var click3 = function() {
+            //alert("click3");
+            clear();
+            $("td:eq(1)").css("color", "red");      // 각각 처리
+            $("td:eq(4)").css("color", "red");      // 각각 처리
+        }
+        function click4() {
+            //alert("click4");
+            clear();
+            $("td:eq(2)").css("color", "red");      // 각각 처리
+            $("td:eq(5)").css("color", "red");      // 각각 처리
+        }
+
+    </script>
+</body>
+</html>

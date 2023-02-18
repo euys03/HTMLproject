@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Insert title here</title>
+        <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+        <style>
+            fieldset{
+                height:400px;
+                width:400px;
+            }
+        </style>
+    </head>
+    <body>
+
+        <script>
+            // window.onload
+            // document.addEventListener("DOMContentLoaded")
+            // $(document).ready(function() {})
+
+            $(function() {
+                // $("form").on("submit", function() {
+                //     return false;
+                // });
+            })
+            // 위의 코드( onclick="return check();" )와 동일
+            // -> onclick="return false" 와 동일하게 동작
+            function check() {
+                var userId = $("#user_id");
+                var userPw = $("#pw");
+                var userPwRe = $("#pw_re");
+                var userName = $("#user_name"); 
+                var userAddr = $("#addr");
+
+                var userEmail = $("email");
+
+                // 2) alert대신
+                var msgTag = $("#message");
+                //var target = userId.val(); 
+                var idRegExp = /^[a-z][a-z0-9]{3,11}$/;   // id의 정규표현식으로 값을 걸러줌. 
+                                                        // 첫글자가 소문자니까 뒤에 있는 수량문자는 3,11 된다.
+                var pwRegExp = /^[a-zA-Z0-9]{8,12}$/;   // 시작(^)과 끝($)을 맺어줘야 정확히 숫자 범위 사용 가능
+                var nameRegExp = /[ㄱ-힣]+$/;     // 최소 1글자 이상: {1, } 또는 '+'(한글을 반복해서 검출할 수 있게)
+                                                // 즉, 한글로 끝나는 한글자 이상의 문자를 검출(한글자인 한글, 두글자인 한글 ...)
+                var addrRegExp = /[a-zA-Z]+$/;     // a-z (영어)입력가능하게 함으로써 아래에 부정연산자(!) 사용안해도 됨.
+                var emailRegExp = /^[a-z0-9]{4,12}@/;   // @로 끝나게되므로 끝맺는 $는 붙이지 않는다.(시작^만)
+
+
+                // ID 입력 체크
+                if(!idRegExp.test(userId.val())) {  // "" : 입력받은 값
+                    userId.css("background-color", "red");
+                    // 1) if문으로 공백에 대한 알림창 (=> id뒤에 'required'를 적어 사용도 가능)
+                    //alert("ID를 입력하세요!");
+                    // 2-1) alert대신
+                    msgTag.html("아이디는 소문자로 시작하고 영어소문자, 숫자로 4~12글자로 입력바랍니다.");
+                    return false;
+                // PW 입력 체크
+                } else if(!pwRegExp.test(userPw.val())) {
+                    userPw.css("background-color", "red");
+                    msgTag.html("비밀번호는 영어 대/소문자, 숫자로 8~12글자로 입력바랍니다.")
+                    return false;
+                // PW_re 입력 체크
+                } else if(userPw.val() !== userPwRe.val()) {    //값과 자료형 모두 동일한지 (다르면 true)
+                    // '1' == 1 -> true, '1' === 1 -> false
+                    userPw.css("background-color", "red");
+                    userPwRe.css("background-color", "red");
+                    msgTag.html("비밀번호가 일치하지 않습니다.");
+                    return false;
+                // NAME 입력 체크
+                } else if(!userName.test(userName.val())) {
+                    userName.css("background-color", "red");
+                    msgTag.html("이름은 한글(최소 1글자)만 입력바랍니다.");
+                    return false;
+                // ADDRESS 입력 체크    => 부정연산자(!) 쓰지 않음.
+                } else if(addrRegExp.test(userAddr.val()) || userAddr.val() == "") {
+                    userAddr.css("background-color", "red");
+                    msgTag.html("주소는 영어 사용이 불가합니다. 반드시 입력바랍니다.");
+                    return false;
+                // EMAIL 입력 체크
+                }else if(!emailRegExp.test(userEmail.val())) {
+                    userEmail.css("background-color", "red");
+                    msgTag.html("이메일 아이디는 영어소문자, 숫자 4~12자리로 입력바랍니다.");
+                    return false;
+                // PHONE 입력 체크
+                }else if(!(/^010$/.test($("#tel1").val())) 
+                        || !(/\d{3,4}/.test($("#tel2").val())) 
+                        || !(/\d{4}/.test($("#tel3").val()))) {
+                    $("#tel1").css("background-color", "red");
+                    $("#tel2").css("background-color", "red");
+                    $("#tel3").css("background-color", "red");
+                    msgTag.html("폰번호는 010으로 시작하고 두번째 필드는 3~4자리 숫자, 세번째 필드는 4자리 숫자만 입력바랍니다.");
+                    return false;
+                }
+                return true;
+            }
+            function clearWhite() {
+                $("input").css("background-color", "white");
+            }
+        </script>
+        
+            문제<br>
+        회원가입시 각 필드마다 유효성 검사를 하여 처리할 수 있도록 만들어라. <br>
+        1. ID는 영어소문자,숫자만 가능해야함(4~12자리,소문자로 시작해야함) <br>
+        2. PW는 영어소문자,대문자,숫자만 입력 가능해야 하고 (최소 8~12자리) <br>
+        3. PW와 PW_re는 같아야 함<br>
+        4. NAME은 무조건 한글만 가능해야 함(최소1글자 이상)<br>
+        5. 주소에는 영어 사용 불가(공백 불가)<br>
+        6. 우편번호는 무조건 숫자만 입력 가능해야 함<br>
+        7. 이메일은 @가 포함 되어야 함(@앞에가 영문자,숫자로  4~12글자 ) <br>
+        8. 전화번호는 첫번째 필드는 010만 입력 가능 해야 함 <br>
+                    두번째 필드는 3자리 이상 입력 해야 함 <br>
+                    세번째 필드는 무조건 4자리 입력 해야함 <br>
+                    (모두 숫자만 가능 해야함) <br>
+        
+    <center>
+
+        <fieldset>
+            <legend>회원가입</legend>
+    <pre>
+    <span id="message" style="color:blue;"></span>
+                <form action="join" method="post">
+    ID :        <input type="text" id="user_id" /><br>
+    PW :        <input type="password" id="pw" /><br>
+    PW_re :     <input type="password" id="pw_re" /><br>
+    NAME :      <input type="text" id="user_name" /><br>
+    ADDRESS :   <input type="text" id="addr" /><br>
+    POST NUMBER:  <input type="text" size="5" id="post_1" /> - <input type="text" size="5" id="post_2" /> <br>
+    E-MAIL :    <input type="text" id="email" /><br>
+    PHONE :     <input type="text" id="tel1" size="2" maxlength="3" />-<input type="text" id="tel2" size="2" maxlength="4" />-<input type="text" id="tel3" size="2" maxlength="4" /><br>
+    <input type="submit" value="회원가입" onclick="return check();"/>  <input type="reset" value="취소" />
+                </form>
+    </pre>
+        </fieldset>
+    </center>
+
+    </body>
+</html>
+    
+    
+    
+    
+    
+    

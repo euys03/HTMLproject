@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery 조작 메소드</title>
+    <style>
+        table {
+            border: 1px solid black;
+        }
+        th, td {
+            border: 1px solid black;
+        }
+        .title {
+            background-color: black;
+            color: white;
+        }
+        .name {
+            background-color: yellow;
+        }
+        .age {
+            background-color: blue;
+        }
+        .addr {
+            background-color: green;
+        }
+    </style>
+    <script src="../../js/jquery-3.6.3.min.js"></script>
+</head>
+<body>
+    <script>
+        // 방법1.
+        //window.onload = function() {}
+        // 방법2. add
+        //document.addEventListener("DOMContentLoaded", function() { });
+        // 방법3.
+        $(document).ready(function() { })
+        // 현재방법
+        $(function() {
+            $("#btn2").on("click", () => {
+                //alert("test");
+                $("th").addClass("title");
+                // 방법1)
+                // $("tr").eq(1).children().eq(0).addClass("name");
+                // $("tr").eq(2).children().eq(0).addClass("name");
+                // $("tr").eq(3).children().eq(0).addClass("name");
+                // $("tr").eq(4).children().eq(0).addClass("name");
+
+                // 방법2)
+                // $("td").eq(0).addClass("name");
+                // $("td").eq(3).addClass("name");
+                // $("td").eq(6).addClass("name");
+                // $("td").eq(9).addClass("name");
+
+                // 방법3) filter() 사용
+                var names = $("td").filter(function(index) {
+                    return index % 3 == 0;
+                });
+                var ages = $("td").filter(function(index) {
+                    return index % 3 == 1;
+                });
+                var addrs = $("td").filter(function(index) {
+                    return index % 3 == 2;
+                });
+                names.addClass("name");
+                ages.addClass("age");
+                addrs.addClass("addr");
+            });
+            $("#reset").on("click", function() {
+                // 새로운 방법
+                // 선택된 모든 <tr>중 첫번째 tr선택(.first) 첫번째 tr의 자손(.children)
+                $("tr").first().children().removeClass("title");
+                // 새로운 방법2. filter사용않고 선택자 이용
+                console.log($("td:nth-of-type(3n)"));
+                $("td:nth-of-type(3n+1)").removeClass("name");
+                $("td:nth-of-type(3n+2)").removeClass("age");
+                $("td:nth-of-type(3n)").removeClass("addr");
+            });
+        });
+    </script>
+
+    문제2. <br>
+    적용 버튼 클릭시 style이 적용될 수 있도록 하여라.<br>
+    취소 버튼 클릭시 style이 취소될 수 있도록 하여라.<br>
+    (css 코드는 변경하지 않도록 함) <br>
+    <table>
+        <tr><th>이름</th><th>나이</th><th>주소</th></tr>
+        <tr><td>홍길동</td><td>20</td><td>서울시</td></tr>
+        <tr><td>김말똥</td><td>30</td><td>경기도</td></tr>
+        <tr><td>고길똥</td><td>40</td><td>강원도</td></tr>
+        <tr><td>김지똥</td><td>50</td><td>인천광역시</td></tr>  
+    </table>
+    
+    <button id="btn2">적용</button>
+    <button id="reset">취소</button>
+</body>
+</html>

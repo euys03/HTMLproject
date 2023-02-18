@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery 조작 메소드(색깔복사)</title>
+    <style>
+        div{
+            border : 2px solid black;
+            width:100px;
+            height:100px;
+            margin: 5px;
+            float: left;
+        }
+    </style>
+    <!-- jQuery 선언문 -->
+    <script src="../../js/jquery-3.6.3.min.js"></script>
+</head>
+<body>
+    <script>
+        $(function() {
+            // 색 적용하기
+            var color = ""
+            $("#img1").on("click", function() {
+                //console.log($("#img1").css("background-color"))
+                color = $("#img1").css("background-color");
+            });
+            $("#img2").on("click", function() {
+                //console.log($("#img2").css("background-color"))
+                color = $("#img2").css("background-color");
+            });
+
+            // $("#1th").on("click", function() {
+            //     $("#1th").css("background-color", color);
+            // });
+            // $("#2th").on("click", function() {
+            //     $("#2th").css("background-color", color);
+            // });
+            // $("#3th").on("click", function() {
+            //     $("#3th").css("background-color", color);
+            // });
+            // $("#4th").on("click", function() {
+            //     $("#4th").css("background-color", color);
+            // });
+            // $("#5th").on("click", function() {
+            //     $("#5th").css("background-color", color);
+            // })
+            // $("#6th").on("click", function() {
+            //     $("#6th").css("background-color", color);
+            // })
+            // $("#7th").on("click", function() {
+            //     $("#7th").css("background-color", color);
+            // })
+            // 위의 코드 간단히 쓰기 (문자열 속성 선택자[] 및 this 키워드 사용)
+            $("div[id$=th]").on("click", function() {
+                $(this).css("background-color", color);
+            });
+
+            $("#btn1").on("click", function() {
+                $("div[id$=th]").css("background-color", "white");
+            });
+        });
+    </script>
+
+
+    문제3<br>
+    다음 2개의 그림 중 선택한 후 복사 될 수 있도록 구현하여라 <br>
+    <fieldset style="width:300px; margin:30px">
+    <legend>2개의 그림 중 선택하시오.</legend>
+    <div id="img1" style="background-color:red;">
+        
+    </div>
+    <div id="img2" style="background-color:blue;">
+        
+    </div>
+    </fieldset>
+    
+    <fieldset style="width:800px;  margin:30px">			
+            <legend>복사되는 공간</legend>			 
+            <div id="1th">					
+            </div >
+            <div id="2th">
+                
+            </div>
+            <div id="3th">
+                
+            </div>
+            <div id="4th">
+                
+            </div>
+            <div id="5th">
+                
+            </div>
+            <div id="6th">
+                
+            </div>
+            <div id="7th">
+                
+            </div>
+    </fieldset>
+    <button id="btn1"> 초기화 </button>
+</body>
+</html>

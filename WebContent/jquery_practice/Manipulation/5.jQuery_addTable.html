@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery 조작 메소드(댓글 작성 등에 사용)</title>
+
+    <style>
+        table { border : 1px solid black; }
+        th,td { border : 1px solid black; }
+    </style>
+    <!-- jQuery 선언문 -->
+    <script src="../../js/jquery-3.6.3.min.js"></script>
+</head>
+<body>
+    <script>
+        // 함수로 사용
+        const add = () => {
+            //alert("test");
+            // 1) HTML영역에 있는 값(입력받은 값)을 받아 출력
+            let title = $("[name=title]").val();
+            let content = $("[name=content]").val();
+            let writer = $("[name=owner]").val();
+            // 2) append() 메소드 사용하여 script영역에 <태그>를 작성 가능
+            $("table").append("<tr><td>"+title +"</td><td>"+content+"</td><td>"+writer+"</td></tr>")
+            // 3) 테이블에 추가한 후 입력칸을 공백으로 변경
+            $("[name=title]").val("");
+            $("[name=content]").val("");
+            $("[name=owner]").val("");
+        }
+    </script>
+
+    제목 : <input type="text" name="title"><br> 
+    내용 : <input type="text" name="content"><br>
+    작성자 : <input type="text" name="owner"><br>
+    <input type="button" value="테이블에 추가" onclick="add();">
+    <br><br>
+
+    <table>
+    
+        <tr>
+            <td>제목</td>    
+            <td>내용</td>
+            <td>작성자</td>
+        </tr>
+    
+    </table>
+
+</body>
+</html>
